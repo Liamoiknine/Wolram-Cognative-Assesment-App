@@ -1,5 +1,13 @@
 import SwiftUI
 
+/// Helper function to create a Swift concurrency Task.
+/// Uses _Concurrency.Task to explicitly reference Swift's concurrency Task type.
+fileprivate func createTask(_ operation: @escaping () async -> Void) {
+    _Concurrency.Task {
+        await operation()
+    }
+}
+
 /// Generic container for task presentation.
 /// Reacts to TaskRunner state changes.
 struct TaskView: View {
@@ -59,7 +67,7 @@ struct TaskView: View {
                     .padding()
                 
                 Button("Submit Response") {
-                    Task {
+                    createTask {
                         await viewModel.captureTextResponse(responseText)
                     }
                 }
@@ -73,7 +81,7 @@ struct TaskView: View {
             }
             
             Button("Stop Task") {
-                Task {
+                createTask {
                     await viewModel.stopTask()
                 }
             }

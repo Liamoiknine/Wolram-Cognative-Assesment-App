@@ -20,7 +20,7 @@ class FileStorage: FileStorageProtocol {
     
     func createDirectory(at path: String) async throws {
         let fullPath = self.path(for: path)
-        try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             DispatchQueue.global(qos: .utility).async {
                 do {
                     try self.fileManager.createDirectory(atPath: fullPath, withIntermediateDirectories: true, attributes: nil)
@@ -34,7 +34,7 @@ class FileStorage: FileStorageProtocol {
     
     func save(data: Data, to path: String) async throws {
         let fullPath = self.path(for: path)
-        try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             DispatchQueue.global(qos: .utility).async {
                 do {
                     // Create parent directory if needed
@@ -54,7 +54,7 @@ class FileStorage: FileStorageProtocol {
     
     func load(from path: String) async throws -> Data {
         let fullPath = self.path(for: path)
-        return try await withCheckedThrowingContinuation { continuation in
+        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Data, Error>) in
             DispatchQueue.global(qos: .utility).async {
                 do {
                     let data = try Data(contentsOf: URL(fileURLWithPath: fullPath))
@@ -72,7 +72,7 @@ class FileStorage: FileStorageProtocol {
     
     func remove(at path: String) async throws {
         let fullPath = self.path(for: path)
-        try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             DispatchQueue.global(qos: .utility).async {
                 do {
                     if self.fileManager.fileExists(atPath: fullPath) {
@@ -90,7 +90,7 @@ class FileStorage: FileStorageProtocol {
         let tempDir = path(for: "temp")
         guard fileManager.fileExists(atPath: tempDir) else { return }
         
-        try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             DispatchQueue.global(qos: .utility).async {
                 do {
                     let files = try self.fileManager.contentsOfDirectory(atPath: tempDir)

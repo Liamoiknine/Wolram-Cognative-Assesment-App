@@ -12,7 +12,7 @@ class AudioSessionManager {
     
     /// Configures the audio session for recording.
     func configureForRecording() async throws {
-        try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             DispatchQueue.global(qos: .userInitiated).async {
                 do {
                     try self.audioSession.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker])
@@ -27,7 +27,7 @@ class AudioSessionManager {
     
     /// Configures the audio session for playback only.
     func configureForPlayback() async throws {
-        try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             DispatchQueue.global(qos: .userInitiated).async {
                 do {
                     try self.audioSession.setCategory(.playback, mode: .default)
@@ -42,7 +42,7 @@ class AudioSessionManager {
     
     /// Deactivates the audio session.
     func deactivate() async throws {
-        try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             DispatchQueue.global(qos: .userInitiated).async {
                 do {
                     try self.audioSession.setActive(false, options: .notifyOthersOnDeactivation)

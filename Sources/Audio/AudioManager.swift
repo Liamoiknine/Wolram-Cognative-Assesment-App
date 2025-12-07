@@ -1,6 +1,12 @@
 import Foundation
 import AVFoundation
 
+/// Helper function to sleep using Swift's concurrency Task.
+/// Uses _Concurrency.Task to explicitly reference Swift's concurrency Task type.
+fileprivate func sleepTask(nanoseconds: UInt64) async throws {
+    try await _Concurrency.Task.sleep(nanoseconds: nanoseconds)
+}
+
 /// AVFoundation-based implementation of AudioManagerProtocol.
 /// Handles audio recording and playback with async operations.
 class AudioManager: AudioManagerProtocol {
@@ -117,7 +123,7 @@ class AudioManager: AudioManagerProtocol {
         
         // Wait for playback to complete
         while player.isPlaying {
-            try await Task.sleep(nanoseconds: 100_000_000) // 0.1 seconds
+            try await sleepTask(nanoseconds: 100_000_000) // 0.1 seconds
         }
         
         try await stopPlayback()

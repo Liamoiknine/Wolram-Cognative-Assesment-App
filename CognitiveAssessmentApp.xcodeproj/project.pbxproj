@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 63;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		046733C2909DCC343384BEA3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9120E2E3061ED725839CDAF9 /* HomeView.swift */; };
+		0A0EBF8173967B820B296C70 /* ItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E2A1B109E5B9298605DA0 /* ItemResponse.swift */; };
+		158213C86B3D4E282D835BB2 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A221EE1C4A7886AA452E9A49 /* Patient.swift */; };
+		19718BF4DD0CF14DE2744125 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A677CB5563D099495D789E /* TaskViewModel.swift */; };
+		1B058925C86A8EDCCA3E0B2C /* StartAssessmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A4851041F7669BA27D8330 /* StartAssessmentViewModel.swift */; };
+		1BDE25E85E7B6B5F70D8D3D7 /* CognitiveAssessmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092F971BBE60B70EDD221B45 /* CognitiveAssessmentApp.swift */; };
+		286C170085568DAE8C026E83 /* AudioClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A061F3E1A73529DF32F141A0 /* AudioClip.swift */; };
+		2F749439889B82C455B667FB /* SessionHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1307B0DF573CAA78D54209 /* SessionHistoryView.swift */; };
+		3FAC9694CBE789C5DD8CA110 /* FileStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F698D115906A174B4C9CD4D9 /* FileStorageProtocol.swift */; };
+		461285E62D0B0B7A31CF67F8 /* TranscriptionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094502A6538978D43EF27366 /* TranscriptionManagerProtocol.swift */; };
+		47FB95E619D15DDF28F7AD4D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC8065C4CFABF2D04FB81C4 /* Task.swift */; };
+		4FED2C4E7E7B6F11BED1820E /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C0477DCFC511BC56B7D898 /* FileStorage.swift */; };
+		5C9FBC93ECAF9DDF8BD869E3 /* AudioManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FA6B51815273313A0B1D6 /* AudioManagerProtocol.swift */; };
+		695108D3C22918A6283B7497 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC457276F9CC50F867B61E4 /* DataController.swift */; };
+		6D70B5F976C97FF427B26E65 /* SessionHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266968D54AB00D7BC0A5922E /* SessionHistoryViewModel.swift */; };
+		71C029FA2A04E76817B5E4C9 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E4CDD66E16330FE40E98B /* TaskView.swift */; };
+		8897EB3857AE702DEAE2FD4D /* AudioSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4945AB6C15AD9134009A3F /* AudioSessionManager.swift */; };
+		8A341E3E5F07516CFD105E89 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DECE667B3D645E8008974B /* HomeViewModel.swift */; };
+		A128604733DA175F7314DDAE /* TaskRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BB595EE7B1750FBD52AEAE /* TaskRunner.swift */; };
+		A2352F3D8E0D470B73B38152 /* TaskRunnerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D535D2654BB9693A9C9FB27D /* TaskRunnerState.swift */; };
+		A3340142A35908ED74F88127 /* CSVExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD3FE3B02963BFE580C29DA /* CSVExporter.swift */; };
+		BC3A9DF4899BAEFF7E3E479D /* StartAssessmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A84135488B9B33B9435BDD /* StartAssessmentView.swift */; };
+		C6D1E8CF951E16E52BF1698D /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE8CD1FDB24706A2FA616B5 /* AudioManager.swift */; };
+		C6D747BDFAD69E528CFB57E4 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546CC3DAF0E395E2428DBDC4 /* Session.swift */; };
+		CCEE868028924A240DF9ADD0 /* TaskRunnerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E048A2D496A96BC2C39910 /* TaskRunnerProtocol.swift */; };
+		F4BFD850CCF3E53EC6CDFC5C /* DataControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF131F63CB9E1576CDA8C42 /* DataControllerProtocol.swift */; };
+		FB32A832BE11B90D8DBA1A35 /* TranscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ADBD91C36593E5A0A33708 /* TranscriptionManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		092F971BBE60B70EDD221B45 /* CognitiveAssessmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CognitiveAssessmentApp.swift; sourceTree = "<group>"; };
+		094502A6538978D43EF27366 /* TranscriptionManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionManagerProtocol.swift; sourceTree = "<group>"; };
+		266968D54AB00D7BC0A5922E /* SessionHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHistoryViewModel.swift; sourceTree = "<group>"; };
+		2B2FA6B51815273313A0B1D6 /* AudioManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManagerProtocol.swift; sourceTree = "<group>"; };
+		46BB595EE7B1750FBD52AEAE /* TaskRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRunner.swift; sourceTree = "<group>"; };
+		4CF131F63CB9E1576CDA8C42 /* DataControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataControllerProtocol.swift; sourceTree = "<group>"; };
+		4E1307B0DF573CAA78D54209 /* SessionHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHistoryView.swift; sourceTree = "<group>"; };
+		52DECE667B3D645E8008974B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		546CC3DAF0E395E2428DBDC4 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		5AE8CD1FDB24706A2FA616B5 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		5CD3FE3B02963BFE580C29DA /* CSVExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVExporter.swift; sourceTree = "<group>"; };
+		5F0E2A1B109E5B9298605DA0 /* ItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemResponse.swift; sourceTree = "<group>"; };
+		62C0477DCFC511BC56B7D898 /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
+		74A677CB5563D099495D789E /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
+		8BC8065C4CFABF2D04FB81C4 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		9120E2E3061ED725839CDAF9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		91A4851041F7669BA27D8330 /* StartAssessmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAssessmentViewModel.swift; sourceTree = "<group>"; };
+		91E048A2D496A96BC2C39910 /* TaskRunnerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRunnerProtocol.swift; sourceTree = "<group>"; };
+		A061F3E1A73529DF32F141A0 /* AudioClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioClip.swift; sourceTree = "<group>"; };
+		A221EE1C4A7886AA452E9A49 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		ABC457276F9CC50F867B61E4 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		AF4945AB6C15AD9134009A3F /* AudioSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionManager.swift; sourceTree = "<group>"; };
+		B5A84135488B9B33B9435BDD /* StartAssessmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAssessmentView.swift; sourceTree = "<group>"; };
+		C8ADBD91C36593E5A0A33708 /* TranscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionManager.swift; sourceTree = "<group>"; };
+		D535D2654BB9693A9C9FB27D /* TaskRunnerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRunnerState.swift; sourceTree = "<group>"; };
+		D78E4CDD66E16330FE40E98B /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		E6D4ED2FD25B21D3FA0273EB /* CognitiveAssessmentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CognitiveAssessmentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F698D115906A174B4C9CD4D9 /* FileStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorageProtocol.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		046F97295823FBEEB5B04715 /* Transcription */ = {
+			isa = PBXGroup;
+			children = (
+				C8ADBD91C36593E5A0A33708 /* TranscriptionManager.swift */,
+				094502A6538978D43EF27366 /* TranscriptionManagerProtocol.swift */,
+			);
+			path = Transcription;
+			sourceTree = "<group>";
+		};
+		1102F763EAC1E7C3309814FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E6D4ED2FD25B21D3FA0273EB /* CognitiveAssessmentApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		13092A268AC3C7AD6C358D52 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				5AE8CD1FDB24706A2FA616B5 /* AudioManager.swift */,
+				2B2FA6B51815273313A0B1D6 /* AudioManagerProtocol.swift */,
+				AF4945AB6C15AD9134009A3F /* AudioSessionManager.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		4715DFF15545F872F9E1353A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A061F3E1A73529DF32F141A0 /* AudioClip.swift */,
+				5F0E2A1B109E5B9298605DA0 /* ItemResponse.swift */,
+				A221EE1C4A7886AA452E9A49 /* Patient.swift */,
+				546CC3DAF0E395E2428DBDC4 /* Session.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5F0DB3E6CDC831E9409FCC79 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E541EC8EA1DB6E1FE52B6A8D /* App */,
+				86858E8FC61ED348450DC5E5 /* ViewModels */,
+				6EEF3EB2D5F47488D1930301 /* Views */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		69E51C5DAFB600A7D8962AD8 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				E432461BFC653296C79D5BCE /* Assessment */,
+				13092A268AC3C7AD6C358D52 /* Audio */,
+				BDD62EB4A1DE955FA8001EF3 /* Data */,
+				4715DFF15545F872F9E1353A /* Models */,
+				C328EDE436F5A0C18A51905B /* Storage */,
+				046F97295823FBEEB5B04715 /* Transcription */,
+				5F0DB3E6CDC831E9409FCC79 /* UI */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		6EEF3EB2D5F47488D1930301 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9120E2E3061ED725839CDAF9 /* HomeView.swift */,
+				4E1307B0DF573CAA78D54209 /* SessionHistoryView.swift */,
+				B5A84135488B9B33B9435BDD /* StartAssessmentView.swift */,
+				D78E4CDD66E16330FE40E98B /* TaskView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		86858E8FC61ED348450DC5E5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				52DECE667B3D645E8008974B /* HomeViewModel.swift */,
+				266968D54AB00D7BC0A5922E /* SessionHistoryViewModel.swift */,
+				91A4851041F7669BA27D8330 /* StartAssessmentViewModel.swift */,
+				74A677CB5563D099495D789E /* TaskViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		89968CD9667633C415ED4702 = {
+			isa = PBXGroup;
+			children = (
+				69E51C5DAFB600A7D8962AD8 /* Sources */,
+				1102F763EAC1E7C3309814FF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BDD62EB4A1DE955FA8001EF3 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5CD3FE3B02963BFE580C29DA /* CSVExporter.swift */,
+				ABC457276F9CC50F867B61E4 /* DataController.swift */,
+				4CF131F63CB9E1576CDA8C42 /* DataControllerProtocol.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C328EDE436F5A0C18A51905B /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				62C0477DCFC511BC56B7D898 /* FileStorage.swift */,
+				F698D115906A174B4C9CD4D9 /* FileStorageProtocol.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		E432461BFC653296C79D5BCE /* Assessment */ = {
+			isa = PBXGroup;
+			children = (
+				8BC8065C4CFABF2D04FB81C4 /* Task.swift */,
+				46BB595EE7B1750FBD52AEAE /* TaskRunner.swift */,
+				91E048A2D496A96BC2C39910 /* TaskRunnerProtocol.swift */,
+				D535D2654BB9693A9C9FB27D /* TaskRunnerState.swift */,
+			);
+			path = Assessment;
+			sourceTree = "<group>";
+		};
+		E541EC8EA1DB6E1FE52B6A8D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				092F971BBE60B70EDD221B45 /* CognitiveAssessmentApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C03E8A149C56B5FCC2967651 /* CognitiveAssessmentApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0F6225DDE323679DFAFB3F71 /* Build configuration list for PBXNativeTarget "CognitiveAssessmentApp" */;
+			buildPhases = (
+				8D5EA64DE470E35A9B28B415 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CognitiveAssessmentApp;
+			packageProductDependencies = (
+			);
+			productName = CognitiveAssessmentApp;
+			productReference = E6D4ED2FD25B21D3FA0273EB /* CognitiveAssessmentApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		63F198975C37850B6D77AFDD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = DD98648846C09D4D6E8F5D8C /* Build configuration list for PBXProject "CognitiveAssessmentApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 89968CD9667633C415ED4702;
+			minimizedProjectReferenceProxies = 1;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C03E8A149C56B5FCC2967651 /* CognitiveAssessmentApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D5EA64DE470E35A9B28B415 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				286C170085568DAE8C026E83 /* AudioClip.swift in Sources */,
+				C6D1E8CF951E16E52BF1698D /* AudioManager.swift in Sources */,
+				5C9FBC93ECAF9DDF8BD869E3 /* AudioManagerProtocol.swift in Sources */,
+				8897EB3857AE702DEAE2FD4D /* AudioSessionManager.swift in Sources */,
+				A3340142A35908ED74F88127 /* CSVExporter.swift in Sources */,
+				1BDE25E85E7B6B5F70D8D3D7 /* CognitiveAssessmentApp.swift in Sources */,
+				695108D3C22918A6283B7497 /* DataController.swift in Sources */,
+				F4BFD850CCF3E53EC6CDFC5C /* DataControllerProtocol.swift in Sources */,
+				4FED2C4E7E7B6F11BED1820E /* FileStorage.swift in Sources */,
+				3FAC9694CBE789C5DD8CA110 /* FileStorageProtocol.swift in Sources */,
+				046733C2909DCC343384BEA3 /* HomeView.swift in Sources */,
+				8A341E3E5F07516CFD105E89 /* HomeViewModel.swift in Sources */,
+				0A0EBF8173967B820B296C70 /* ItemResponse.swift in Sources */,
+				158213C86B3D4E282D835BB2 /* Patient.swift in Sources */,
+				C6D747BDFAD69E528CFB57E4 /* Session.swift in Sources */,
+				2F749439889B82C455B667FB /* SessionHistoryView.swift in Sources */,
+				6D70B5F976C97FF427B26E65 /* SessionHistoryViewModel.swift in Sources */,
+				BC3A9DF4899BAEFF7E3E479D /* StartAssessmentView.swift in Sources */,
+				1B058925C86A8EDCCA3E0B2C /* StartAssessmentViewModel.swift in Sources */,
+				47FB95E619D15DDF28F7AD4D /* Task.swift in Sources */,
+				A128604733DA175F7314DDAE /* TaskRunner.swift in Sources */,
+				CCEE868028924A240DF9ADD0 /* TaskRunnerProtocol.swift in Sources */,
+				A2352F3D8E0D470B73B38152 /* TaskRunnerState.swift in Sources */,
+				71C029FA2A04E76817B5E4C9 /* TaskView.swift in Sources */,
+				19718BF4DD0CF14DE2744125 /* TaskViewModel.swift in Sources */,
+				FB32A832BE11B90D8DBA1A35 /* TranscriptionManager.swift in Sources */,
+				461285E62D0B0B7A31CF67F8 /* TranscriptionManagerProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		80376F1E5FE7E4B95D669F7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cognitive Assessment";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app needs microphone access to record audio for cognitive assessments.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "This app needs speech recognition to transcribe audio recordings for cognitive assessments.";
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wolram.CognitiveAssessmentApp;
+				PRODUCT_NAME = CognitiveAssessmentApp;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8C69E959B476650DFD608751 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9442E223A8B5A6F8D1564CDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cognitive Assessment";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app needs microphone access to record audio for cognitive assessments.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "This app needs speech recognition to transcribe audio recordings for cognitive assessments.";
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wolram.CognitiveAssessmentApp;
+				PRODUCT_NAME = CognitiveAssessmentApp;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AEF44733643A163763581DA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0F6225DDE323679DFAFB3F71 /* Build configuration list for PBXNativeTarget "CognitiveAssessmentApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80376F1E5FE7E4B95D669F7B /* Debug */,
+				9442E223A8B5A6F8D1564CDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DD98648846C09D4D6E8F5D8C /* Build configuration list for PBXProject "CognitiveAssessmentApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C69E959B476650DFD608751 /* Debug */,
+				AEF44733643A163763581DA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 63F198975C37850B6D77AFDD /* Project object */;
+}

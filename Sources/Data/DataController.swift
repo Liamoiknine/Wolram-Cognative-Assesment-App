@@ -16,7 +16,7 @@ class DataController: DataControllerProtocol {
     // MARK: - Patient Operations
     
     func createPatient(_ patient: Patient) async throws -> Patient {
-        return try await withCheckedThrowingContinuation { continuation in
+        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Patient, Error>) in
             queue.async(flags: .barrier) {
                 var updatedPatient = patient
                 updatedPatient = Patient(
@@ -49,7 +49,7 @@ class DataController: DataControllerProtocol {
     }
     
     func updatePatient(_ patient: Patient) async throws {
-        try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             queue.async(flags: .barrier) {
                 guard self.patients[patient.id] != nil else {
                     continuation.resume(throwing: DataControllerError.notFound)
@@ -70,7 +70,7 @@ class DataController: DataControllerProtocol {
     }
     
     func deletePatient(id: UUID) async throws {
-        try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             queue.async(flags: .barrier) {
                 guard self.patients[id] != nil else {
                     continuation.resume(throwing: DataControllerError.notFound)
@@ -85,7 +85,7 @@ class DataController: DataControllerProtocol {
     // MARK: - Session Operations
     
     func createSession(_ session: Session) async throws -> Session {
-        return try await withCheckedThrowingContinuation { continuation in
+        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Session, Error>) in
             queue.async(flags: .barrier) {
                 var updatedSession = session
                 updatedSession = Session(
@@ -129,7 +129,7 @@ class DataController: DataControllerProtocol {
     }
     
     func updateSession(_ session: Session) async throws {
-        try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             queue.async(flags: .barrier) {
                 guard self.sessions[session.id] != nil else {
                     continuation.resume(throwing: DataControllerError.notFound)
@@ -152,7 +152,7 @@ class DataController: DataControllerProtocol {
     }
     
     func deleteSession(id: UUID) async throws {
-        try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             queue.async(flags: .barrier) {
                 guard self.sessions[id] != nil else {
                     continuation.resume(throwing: DataControllerError.notFound)
@@ -167,7 +167,7 @@ class DataController: DataControllerProtocol {
     // MARK: - ItemResponse Operations
     
     func createItemResponse(_ response: ItemResponse) async throws -> ItemResponse {
-        return try await withCheckedThrowingContinuation { continuation in
+        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<ItemResponse, Error>) in
             queue.async(flags: .barrier) {
                 var updatedResponse = response
                 updatedResponse = ItemResponse(
@@ -212,7 +212,7 @@ class DataController: DataControllerProtocol {
     }
     
     func updateItemResponse(_ response: ItemResponse) async throws {
-        try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             queue.async(flags: .barrier) {
                 guard self.itemResponses[response.id] != nil else {
                     continuation.resume(throwing: DataControllerError.notFound)
@@ -236,7 +236,7 @@ class DataController: DataControllerProtocol {
     }
     
     func deleteItemResponse(id: UUID) async throws {
-        try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             queue.async(flags: .barrier) {
                 guard self.itemResponses[id] != nil else {
                     continuation.resume(throwing: DataControllerError.notFound)
@@ -251,7 +251,7 @@ class DataController: DataControllerProtocol {
     // MARK: - AudioClip Operations
     
     func createAudioClip(_ clip: AudioClip) async throws -> AudioClip {
-        return try await withCheckedThrowingContinuation { continuation in
+        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<AudioClip, Error>) in
             queue.async(flags: .barrier) {
                 var updatedClip = clip
                 updatedClip = AudioClip(
@@ -285,7 +285,7 @@ class DataController: DataControllerProtocol {
     }
     
     func updateAudioClip(_ clip: AudioClip) async throws {
-        try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             queue.async(flags: .barrier) {
                 guard self.audioClips[clip.id] != nil else {
                     continuation.resume(throwing: DataControllerError.notFound)
@@ -307,7 +307,7 @@ class DataController: DataControllerProtocol {
     }
     
     func deleteAudioClip(id: UUID) async throws {
-        try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             queue.async(flags: .barrier) {
                 guard self.audioClips[id] != nil else {
                     continuation.resume(throwing: DataControllerError.notFound)

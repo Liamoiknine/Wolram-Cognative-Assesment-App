@@ -9,7 +9,7 @@ struct CognitiveAssessmentApp: App {
     private let fileStorage: FileStorageProtocol
     private let audioManager: AudioManagerProtocol
     private let transcriptionManager: TranscriptionManagerProtocol
-    private let taskRunner: TaskRunnerProtocol
+    private let taskRunner: TaskRunner
     
     init() {
         // Initialize dependencies
@@ -34,7 +34,7 @@ struct CognitiveAssessmentApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
-                .environmentObject(taskRunner as! TaskRunner)
+                .environmentObject(taskRunner)
         }
     }
 }

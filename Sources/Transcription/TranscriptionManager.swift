@@ -6,11 +6,12 @@ import Speech
 class TranscriptionManager: TranscriptionManagerProtocol {
     private let fileStorage: FileStorageProtocol
     private var recognitionTask: SFSpeechRecognitionTask?
-    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    private var recognitionRequest: SFSpeechRecognitionRequest?
     private let speechRecognizer: SFSpeechRecognizer
     
     var isTranscribing: Bool {
-        return recognitionTask != nil && recognitionTask?.state != .completed && recognitionTask?.state != .cancelled
+        guard let task = recognitionTask else { return false }
+        return !task.isCancelled && task.state != .completed && task.state != .canceling
     }
     
     init(fileStorage: FileStorageProtocol, locale: Locale = .current) {

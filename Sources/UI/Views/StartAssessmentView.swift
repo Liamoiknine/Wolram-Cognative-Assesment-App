@@ -1,5 +1,13 @@
 import SwiftUI
 
+/// Helper function to create a Swift concurrency Task.
+/// Uses _Concurrency.Task to explicitly reference Swift's concurrency Task type.
+fileprivate func createTask(_ operation: @escaping () async -> Void) {
+    _Concurrency.Task {
+        await operation()
+    }
+}
+
 /// View for starting a new assessment.
 /// Launches the TaskRunner when ready.
 struct StartAssessmentView: View {
@@ -55,7 +63,7 @@ struct StartAssessmentView: View {
             }
             
             Button("Start") {
-                Task {
+                createTask {
                     await viewModel.startAssessment()
                 }
             }

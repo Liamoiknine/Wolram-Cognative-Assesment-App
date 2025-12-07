@@ -166,7 +166,9 @@ class TaskRunner: TaskRunnerProtocol, ObservableObject {
                     
                     // Transcribe audio if available
                     try? await transcriptionManager.startTranscription(from: audioClip.filePath) { [weak self] result in
-                        Task { @MainActor in
+                        // Use _Concurrency.Task to explicitly reference Swift's concurrency Task type
+                        // This avoids conflict with the local Task protocol
+                        _Concurrency.Task.detached { @MainActor in
                             switch result {
                             case .success(let text):
                                 if var updatedClip = try? await self?.dataController.fetchAudioClip(id: audioClipId) {

@@ -2,7 +2,7 @@ import Foundation
 
 /// Represents a patient in the cognitive assessment system.
 /// Core Data-compatible model with stable UUID identity.
-struct Patient: Identifiable, Codable, Equatable {
+struct Patient: Identifiable, Codable, Equatable, Hashable {
     let id: UUID
     var name: String
     var dateOfBirth: Date?

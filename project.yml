@@ -1,0 +1,38 @@
+name: CognitiveAssessmentApp
+options:
+  bundleIdPrefix: com.wolram
+  deploymentTarget:
+    iOS: "16.0"
+  developmentLanguage: en
+  xcodeVersion: "15.0"
+
+targets:
+  CognitiveAssessmentApp:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - path: Sources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.wolram.CognitiveAssessmentApp
+        PRODUCT_NAME: CognitiveAssessmentApp
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_VERSION: "5.9"
+        IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+        INFOPLIST_KEY_CFBundleDisplayName: Cognitive Assessment
+        INFOPLIST_KEY_NSMicrophoneUsageDescription: "This app needs microphone access to record audio for cognitive assessments."
+        INFOPLIST_KEY_NSSpeechRecognitionUsageDescription: "This app needs speech recognition to transcribe audio recordings for cognitive assessments."
+        INFOPLIST_KEY_UIRequiredDeviceCapabilities: armv7
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown"
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        GENERATE_INFOPLIST_FILE: YES
+    frameworks:
+      - framework: AVFoundation.framework
+        embed: false
+      - framework: Speech.framework
+        embed: false
+    capabilities:
+      - Microphone
+      - Speech Recognition
+
