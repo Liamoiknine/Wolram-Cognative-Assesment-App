@@ -1,0 +1,201 @@
+{
+  "": {
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/master.swiftdeps"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/Task.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/Task.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/Task.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/Task~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/Task.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/Task.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/TaskRunner.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskRunner.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskRunner.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskRunner~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskRunner.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskRunner.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/TaskRunnerProtocol.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskRunnerProtocol.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskRunnerProtocol.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskRunnerProtocol~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskRunnerProtocol.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskRunnerProtocol.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/TaskRunnerState.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskRunnerState.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskRunnerState.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskRunnerState~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskRunnerState.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskRunnerState.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/WorkingMemoryTask.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/WorkingMemoryTask.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/WorkingMemoryTask.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/WorkingMemoryTask~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/WorkingMemoryTask.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/WorkingMemoryTask.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Audio/AudioManager.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioManager.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioManager.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioManager.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioManager.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Audio/AudioManagerProtocol.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioManagerProtocol.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioManagerProtocol.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioManagerProtocol~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioManagerProtocol.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioManagerProtocol.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Audio/AudioSessionManager.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioSessionManager.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioSessionManager.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioSessionManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioSessionManager.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioSessionManager.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Data/CSVExporter.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/CSVExporter.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/CSVExporter.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/CSVExporter~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/CSVExporter.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/CSVExporter.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Data/DataController.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/DataController.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/DataController.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/DataController~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/DataController.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/DataController.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Data/DataControllerProtocol.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/DataControllerProtocol.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/DataControllerProtocol.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/DataControllerProtocol~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/DataControllerProtocol.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/DataControllerProtocol.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Models/AudioClip.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioClip.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioClip.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioClip~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioClip.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AudioClip.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Models/ItemResponse.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/ItemResponse.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/ItemResponse.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/ItemResponse~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/ItemResponse.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/ItemResponse.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Models/Patient.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/Patient.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/Patient.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/Patient~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/Patient.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/Patient.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Models/Session.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/Session.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/Session.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/Session~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/Session.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/Session.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Storage/FileStorage.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/FileStorage.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/FileStorage.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/FileStorage~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/FileStorage.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/FileStorage.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Storage/FileStorageProtocol.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/FileStorageProtocol.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/FileStorageProtocol.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/FileStorageProtocol~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/FileStorageProtocol.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/FileStorageProtocol.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Transcription/TranscriptionManager.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TranscriptionManager.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TranscriptionManager.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TranscriptionManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TranscriptionManager.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TranscriptionManager.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Transcription/TranscriptionManagerProtocol.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TranscriptionManagerProtocol.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TranscriptionManagerProtocol.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TranscriptionManagerProtocol~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TranscriptionManagerProtocol.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TranscriptionManagerProtocol.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/App/CognitiveAssessmentApp.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/CognitiveAssessmentApp.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/CognitiveAssessmentApp.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/CognitiveAssessmentApp~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/CognitiveAssessmentApp.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/CognitiveAssessmentApp.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/ViewModels/HomeViewModel.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/HomeViewModel.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/HomeViewModel.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/HomeViewModel~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/HomeViewModel.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/HomeViewModel.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/ViewModels/SessionHistoryViewModel.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/SessionHistoryViewModel.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/SessionHistoryViewModel.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/SessionHistoryViewModel~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/SessionHistoryViewModel.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/SessionHistoryViewModel.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/ViewModels/StartAssessmentViewModel.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/StartAssessmentViewModel.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/StartAssessmentViewModel.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/StartAssessmentViewModel~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/StartAssessmentViewModel.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/StartAssessmentViewModel.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/ViewModels/TaskViewModel.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskViewModel.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskViewModel.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskViewModel~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskViewModel.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskViewModel.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/HomeView.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/HomeView.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/HomeView.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/HomeView~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/HomeView.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/HomeView.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/SessionHistoryView.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/SessionHistoryView.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/SessionHistoryView.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/SessionHistoryView~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/SessionHistoryView.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/SessionHistoryView.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/StartAssessmentView.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/StartAssessmentView.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/StartAssessmentView.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/StartAssessmentView~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/StartAssessmentView.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/StartAssessmentView.dia"
+  },
+  "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/TaskView.swift": {
+    "dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskView.d",
+    "object": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskView.swift.o",
+    "swiftmodule": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskView~partial.swiftmodule",
+    "swift-dependencies": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskView.swiftdeps",
+    "diagnostics": "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/index-build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskView.dia"
+  }
+}

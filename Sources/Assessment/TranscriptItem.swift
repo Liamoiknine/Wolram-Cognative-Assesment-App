@@ -22,5 +22,11 @@ enum TranscriptItemType {
     case word
     case prompt
     case trialAnnouncement
+    case phaseAnnouncement
+    case digit
+    case letter
+    case calculationPrompt
+    case sentence
+    case fluencyPrompt
 }
 

@@ -1,4 +1,5 @@
 import Foundation
+import AudioToolbox
 
 /// Attention Task implementation.
 /// Tests attention through 4 sequential phases:
@@ -95,7 +96,7 @@ class AttentionTask: Task {
         }
         
         // Intro explanation
-        let introText = "This is an attention task. You will complete four different tests. Let's begin."
+        let introText = "Welcome to the attention task. This test has four parts. I will guide you through each part with spoken instructions. Please listen carefully and follow the directions. Let's begin."
         
         if let taskRunnerInstance = taskRunner as? TaskRunner {
             await MainActor.run {
@@ -121,25 +122,58 @@ class AttentionTask: Task {
         
         if isCancelled { return }
         
+        // Transition to Phase 2
+        let transition1Text = "Good. Now moving to the second part."
+        try? await audioManager.speak(transition1Text)
+        try? await _Concurrency.Task.sleep(nanoseconds: 1_000_000_000) // 1 second pause
+        
         // Phase 2: Digit Span Backward
         try await runDigitSpanBackward()
         
         if isCancelled { return }
+        
+        // Transition to Phase 3
+        let transition2Text = "Well done. Now for the third part."
+        try? await audioManager.speak(transition2Text)
+        try? await _Concurrency.Task.sleep(nanoseconds: 1_000_000_000) // 1 second pause
         
         // Phase 3: Letter Tapping
         try await runLetterTapping()
         
         if isCancelled { return }
         
-        // Phase 4: Serial 7s
-        try await runSerial7s()
+        // Transition to Phase 4
+        let transition3Text = "Excellent. Now for the final part."
+        try? await audioManager.speak(transition3Text)
+        try? await _Concurrency.Task.sleep(nanoseconds: 1_000_000_000) // 1 second pause
         
+        // Phase 4: Serial 7s
         if !isCancelled {
-            let completionText = "Attention task completed."
+            try await runSerial7s()
+        }
+        
+        // Always transition to completed, even if cancelled (so results can be shown)
+        if !isCancelled {
+            let completionText = "Excellent work. You have completed all four parts of the attention task. Thank you for your participation."
             try? await audioManager.speak(completionText)
+            
+            // Add completion message to transcript
+            if let taskRunnerInstance = taskRunner as? TaskRunner {
+                await MainActor.run {
+                    taskRunnerInstance.transcript.append(
+                        TranscriptItem(text: completionText, type: .instruction, isHighlighted: true)
+                    )
+                }
+            }
+            
+            // Brief pause before transitioning
+            try? await _Concurrency.Task.sleep(nanoseconds: 1_000_000_000) // 1 second
             
             await taskRunner.transition(to: .completed)
             print("✅ AttentionTask: Task fully completed")
+        } else {
+            print("🛑 AttentionTask: Task was cancelled, transitioning to completed to show partial results")
+            await taskRunner.transition(to: .completed)
         }
     }
     
@@ -186,7 +220,7 @@ class AttentionTask: Task {
         // Read digits
         await taskRunner.transition(to: .presenting)
         
-        for (index, digit) in forwardDigits.enumerated() {
+        for (_, digit) in forwardDigits.enumerated() {
             if isCancelled { return }
             
             let digitString = String(digit)
@@ -221,7 +255,7 @@ class AttentionTask: Task {
         }
         
         // Prompt for response
-        let promptText = "Now please repeat the numbers back in the same order."
+        let promptText = "Now please repeat the numbers back in the same order. You have 10 seconds. I'm listening."
         
         if let taskRunnerInstance = taskRunner as? TaskRunner {
             await MainActor.run {
@@ -241,12 +275,34 @@ class AttentionTask: Task {
             }
         }
         
+        // Small pause before recording starts
+        try? await _Concurrency.Task.sleep(nanoseconds: 500_000_000) // 0.5 second
+        
+        // Play start beep
+        try? await audioManager.playBeep(soundID: SystemSoundID(1057)) // Start beep
+        
         // Record response
         await taskRunner.transition(to: .recording)
         try? await _Concurrency.Task.sleep(nanoseconds: 100_000_000)
-        try? await _Concurrency.Task.sleep(nanoseconds: UInt64(recordingDuration * 1_000_000_000))
         
-        if isCancelled { return }
+        // Wait for recording duration, checking for cancellation every 0.5 seconds
+        let checkInterval: TimeInterval = 0.5
+        let totalChecks = Int(recordingDuration / checkInterval)
+        for i in 0..<totalChecks {
+            if isCancelled {
+                print("🛑 AttentionTask: Task cancelled during recording (check \(i + 1)/\(totalChecks))")
+                break
+            }
+            try? await _Concurrency.Task.sleep(nanoseconds: UInt64(checkInterval * 1_000_000_000))
+        }
+        
+        if isCancelled {
+            print("🛑 AttentionTask: Task cancelled during recording, processing partial data")
+            return
+        }
+        
+        // Play end beep
+        try? await audioManager.playBeep(soundID: SystemSoundID(1054)) // End beep (different pitch)
         
         // Evaluate
         await taskRunner.transition(to: .evaluating)
@@ -256,12 +312,16 @@ class AttentionTask: Task {
         let audioClipId = response?.audioClipId
         
         let transcription = try? await waitForTranscription(audioClipId: audioClipId, maxWaitSeconds: transcriptionMaxWaitTime)
-        let (score, isCorrect) = scoreDigitSpan(transcription ?? "", expected: forwardDigits, reverse: false)
+        let (_, isCorrect) = scoreDigitSpan(transcription ?? "", expected: forwardDigits, reverse: false)
+        
+        // Extract digits for display (convert words like "nine" to "9")
+        let extractedDigits = extractDigitsFromTranscription(transcription ?? "")
+        let formattedResponse = extractedDigits.map { String($0) }.joined(separator: " ")
         
         // Update response
         if var currentResponse = response {
             currentResponse.score = isCorrect ? 1.0 : 0.0
-            currentResponse.responseText = transcription
+            currentResponse.responseText = formattedResponse.isEmpty ? transcription : formattedResponse
             currentResponse.expectedWords = forwardDigits.map { String($0) }
             currentResponse.correctWords = isCorrect ? forwardDigits.map { String($0) } : []
             currentResponse.updatedAt = Date()
@@ -303,7 +363,7 @@ class AttentionTask: Task {
         // Read digits
         await taskRunner.transition(to: .presenting)
         
-        for (index, digit) in backwardDigits.enumerated() {
+        for (_, digit) in backwardDigits.enumerated() {
             if isCancelled { return }
             
             let digitString = String(digit)
@@ -338,7 +398,7 @@ class AttentionTask: Task {
         }
         
         // Prompt for response
-        let promptText = "Now please repeat the numbers back in reverse order."
+        let promptText = "Now please repeat the numbers back in reverse order. You have 10 seconds. I'm listening."
         
         if let taskRunnerInstance = taskRunner as? TaskRunner {
             await MainActor.run {
@@ -358,12 +418,34 @@ class AttentionTask: Task {
             }
         }
         
+        // Small pause before recording starts
+        try? await _Concurrency.Task.sleep(nanoseconds: 500_000_000) // 0.5 second
+        
+        // Play start beep
+        try? await audioManager.playBeep(soundID: SystemSoundID(1057)) // Start beep
+        
         // Record response
         await taskRunner.transition(to: .recording)
         try? await _Concurrency.Task.sleep(nanoseconds: 100_000_000)
-        try? await _Concurrency.Task.sleep(nanoseconds: UInt64(recordingDuration * 1_000_000_000))
         
-        if isCancelled { return }
+        // Wait for recording duration, checking for cancellation every 0.5 seconds
+        let checkInterval: TimeInterval = 0.5
+        let totalChecks = Int(recordingDuration / checkInterval)
+        for i in 0..<totalChecks {
+            if isCancelled {
+                print("🛑 AttentionTask: Task cancelled during recording (check \(i + 1)/\(totalChecks))")
+                break
+            }
+            try? await _Concurrency.Task.sleep(nanoseconds: UInt64(checkInterval * 1_000_000_000))
+        }
+        
+        if isCancelled {
+            print("🛑 AttentionTask: Task cancelled during recording, processing partial data")
+            return
+        }
+        
+        // Play end beep
+        try? await audioManager.playBeep(soundID: SystemSoundID(1054)) // End beep (different pitch)
         
         // Evaluate
         await taskRunner.transition(to: .evaluating)
@@ -373,14 +455,21 @@ class AttentionTask: Task {
         let audioClipId = response?.audioClipId
         
         let transcription = try? await waitForTranscription(audioClipId: audioClipId, maxWaitSeconds: transcriptionMaxWaitTime)
-        let (score, isCorrect) = scoreDigitSpan(transcription ?? "", expected: backwardDigits, reverse: true)
+        let (_, isCorrect) = scoreDigitSpan(transcription ?? "", expected: backwardDigits, reverse: true)
+        
+        // The expected response is the reversed sequence
+        let expectedResponse = backwardDigits.reversed().map { String($0) }
+        
+        // Extract digits for display (convert words like "nine" to "9")
+        let extractedDigits = extractDigitsFromTranscription(transcription ?? "")
+        let formattedResponse = extractedDigits.map { String($0) }.joined(separator: " ")
         
         // Update response
         if var currentResponse = response {
             currentResponse.score = isCorrect ? 1.0 : 0.0
-            currentResponse.responseText = transcription
-            currentResponse.expectedWords = backwardDigits.map { String($0) }
-            currentResponse.correctWords = isCorrect ? backwardDigits.reversed().map { String($0) } : []
+            currentResponse.responseText = formattedResponse.isEmpty ? transcription : formattedResponse
+            currentResponse.expectedWords = expectedResponse
+            currentResponse.correctWords = isCorrect ? expectedResponse : []
             currentResponse.updatedAt = Date()
             
             try? await dataController.updateItemResponse(currentResponse)
@@ -409,7 +498,7 @@ class AttentionTask: Task {
         tapLetterIndices = []
         
         // Announce phase
-        let phaseText = "Now I will read you a list of 30 letters. Please tap the screen every time you hear the letter A."
+        let phaseText = "For this part, I will read you a list of 30 letters. Please tap anywhere on the screen every time you hear the letter A. Tap only when you hear the letter A. Are you ready? Here we go."
         
         if let taskRunnerInstance = taskRunner as? TaskRunner {
             await MainActor.run {
@@ -429,16 +518,23 @@ class AttentionTask: Task {
             }
         }
         
+        // Brief pause before starting
+        try? await _Concurrency.Task.sleep(nanoseconds: 1_000_000_000) // 1 second
+        
         // Read letters
         await taskRunner.transition(to: .presenting)
         
         letterStartTime = Date()
         letterTimings = []
         
-        for (index, letter) in letterSequence.enumerated() {
+        // First pass: Read all letters and record their start times
+        var letterStartTimes: [Date] = []
+        
+        for letter in letterSequence {
             if isCancelled { return }
             
             let letterStart = Date()
+            letterStartTimes.append(letterStart)
             
             if let taskRunnerInstance = taskRunner as? TaskRunner {
                 await MainActor.run {
@@ -450,20 +546,10 @@ class AttentionTask: Task {
             }
             
             try? await _Concurrency.Task.sleep(nanoseconds: 200_000_000)
-            try? await audioManager.speak(letter)
-            
-            let letterEnd = Date()
-            let letterWindowEnd = letterEnd.addingTimeInterval(letterPauseDuration + 0.5)
-            letterTimings.append((index: index, startTime: letterStart, endTime: letterWindowEnd))
-            
-            // Check for taps that occurred during this letter's window
-            for tapTime in tapTimestamps {
-                if tapTime >= letterStart && tapTime <= letterWindowEnd {
-                    if !tapLetterIndices.contains(index) {
-                        tapLetterIndices.append(index)
-                    }
-                }
-            }
+            // Format to read just the letter name (not "Capital A")
+            // Use the letter with a period to make TTS read it as a letter name, not "Capital [letter]"
+            // The period helps TTS interpret it as a standalone letter
+            try? await audioManager.speak("\(letter).")
             
             if let taskRunnerInstance = taskRunner as? TaskRunner {
                 await MainActor.run {
@@ -485,24 +571,26 @@ class AttentionTask: Task {
         // Wait a bit for any final taps (allow taps up to 1 second after last letter)
         try? await _Concurrency.Task.sleep(nanoseconds: 1_000_000_000)
         
-        // Match any remaining taps that weren't matched during the loop
-        if let lastTiming = letterTimings.last {
-            let finalWindowEnd = lastTiming.endTime.addingTimeInterval(1.0)
+        // Now match taps to letters: each letter's window extends from its start until just before the next letter starts
+        for (idx, letterStart) in letterStartTimes.enumerated() {
+            // Window extends from this letter's start until just before next letter starts
+            // For the last letter, extend window by letterPauseDuration + 1 second
+            let windowEnd: Date
+            if idx < letterStartTimes.count - 1 {
+                // Window extends until just before next letter starts
+                windowEnd = letterStartTimes[idx + 1]
+            } else {
+                // Last letter: extend window by pause duration + 1 second for final taps
+                windowEnd = letterStart.addingTimeInterval(letterPauseDuration + 1.0)
+            }
+            
+            letterTimings.append((index: idx, startTime: letterStart, endTime: windowEnd))
+            
+            // Match taps that occurred during this letter's window
             for tapTime in tapTimestamps {
-                // Check if this tap wasn't already matched
-                var wasMatched = false
-                for timing in letterTimings {
-                    if tapTime >= timing.startTime && tapTime <= timing.endTime {
-                        if tapLetterIndices.contains(timing.index) {
-                            wasMatched = true
-                            break
-                        }
-                    }
-                }
-                // If not matched and within final window, assign to last letter
-                if !wasMatched && tapTime <= finalWindowEnd && tapTime > lastTiming.startTime {
-                    if !tapLetterIndices.contains(lastTiming.index) {
-                        tapLetterIndices.append(lastTiming.index)
+                if tapTime >= letterStart && tapTime < windowEnd {
+                    if !tapLetterIndices.contains(idx) {
+                        tapLetterIndices.append(idx)
                     }
                 }
             }
@@ -522,16 +610,18 @@ class AttentionTask: Task {
         }
         
         // Create response for letter tapping (no audio recording needed)
+        // Store tapped positions in correctWords (positions where user actually tapped)
+        // Expected A positions can be calculated from letterSequence in expectedWords
         if let sessionId = sessionId {
             let response = ItemResponse(
                 sessionId: sessionId,
                 taskId: id,
                 responseText: "Letter tapping phase",
                 score: score,
-                correctWords: expectedAPositions.map { String($0) },
+                correctWords: tapLetterIndices.map { String($0) }, // Store actual tapped positions
                 expectedWords: letterSequence
             )
-            try? await dataController.createItemResponse(response)
+            _ = try? await dataController.createItemResponse(response)
         } else {
             print("⚠️ AttentionTask: No sessionId available for letter tapping response")
         }
@@ -544,7 +634,7 @@ class AttentionTask: Task {
         serial7sAnswers = []
         
         // Announce phase
-        let phaseText = "Now I will ask you to subtract 7 from 100, and then continue subtracting 7 from each answer. Please say each answer out loud."
+        let phaseText = "For this final part, you will subtract 7 from 100, then continue subtracting 7 from each answer."
         
         if let taskRunnerInstance = taskRunner as? TaskRunner {
             await MainActor.run {
@@ -564,42 +654,45 @@ class AttentionTask: Task {
             }
         }
         
-        var currentValue = serial7sStart
+        // Single prompt for all subtractions
+        let promptText = "Start with 100. What is 100 minus 7? Then continue subtracting 7 from each answer. Say all five answers out loud. You have 42 seconds. I'm listening."
         
-        // Record all 5 answers in sequence
+        if let taskRunnerInstance = taskRunner as? TaskRunner {
+            await MainActor.run {
+                taskRunnerInstance.transcript.append(
+                    TranscriptItem(text: promptText, type: .calculationPrompt, isHighlighted: true)
+                )
+            }
+        }
+        
+        try? await audioManager.speak(promptText)
+        
+        if let taskRunnerInstance = taskRunner as? TaskRunner {
+            await MainActor.run {
+                if let lastIndex = taskRunnerInstance.transcript.indices.last {
+                    taskRunnerInstance.transcript[lastIndex].isHighlighted = false
+                }
+            }
+        }
+        
+        // Small pause before recording starts
+        try? await _Concurrency.Task.sleep(nanoseconds: 500_000_000) // 0.5 second
+        
+        // Play start beep
+        try? await audioManager.playBeep(soundID: SystemSoundID(1057)) // Start beep
+        
+        // Record all 5 answers in one continuous recording
         await taskRunner.transition(to: .recording)
         try? await _Concurrency.Task.sleep(nanoseconds: 100_000_000)
         
-        for iteration in 0..<5 {
-            if isCancelled { return }
-            
-            let promptText = iteration == 0 ? "Start with 100. What is 100 minus 7?" : "What is that minus 7?"
-            
-            if let taskRunnerInstance = taskRunner as? TaskRunner {
-                await MainActor.run {
-                    taskRunnerInstance.transcript.append(
-                        TranscriptItem(text: promptText, type: .calculationPrompt, isHighlighted: true)
-                    )
-                }
-            }
-            
-            try? await audioManager.speak(promptText)
-            
-            if let taskRunnerInstance = taskRunner as? TaskRunner {
-                await MainActor.run {
-                    if let lastIndex = taskRunnerInstance.transcript.indices.last {
-                        taskRunnerInstance.transcript[lastIndex].isHighlighted = false
-                    }
-                }
-            }
-            
-            // Wait for response (longer duration for calculation)
-            try? await _Concurrency.Task.sleep(nanoseconds: UInt64(8.0 * 1_000_000_000)) // 8 seconds per answer
-            
-            currentValue -= 7
-        }
+        // Wait for all 5 answers (total ~50 seconds: 10s for first, 8s each for remaining 4)
+        let totalWaitTime: TimeInterval = 10.0 + (8.0 * 4) // 42 seconds total
+        try? await _Concurrency.Task.sleep(nanoseconds: UInt64(totalWaitTime * 1_000_000_000))
         
         if isCancelled { return }
+        
+        // Play end beep
+        try? await audioManager.playBeep(soundID: SystemSoundID(1054)) // End beep (different pitch)
         
         // Evaluate
         await taskRunner.transition(to: .evaluating)
@@ -668,12 +761,12 @@ class AttentionTask: Task {
         return nil
     }
     
-    private func scoreDigitSpan(_ transcription: String, expected: [Int], reverse: Bool) -> (score: Double, isCorrect: Bool) {
+    /// Extracts digits from transcription, converting number words to digits
+    private func extractDigitsFromTranscription(_ transcription: String) -> [Int] {
         let normalized = transcription.lowercased()
             .replacingOccurrences(of: "[^a-z0-9\\s]", with: " ", options: .regularExpression)
             .trimmingCharacters(in: .whitespacesAndNewlines)
         
-        // Extract digits from transcription
         var extractedDigits: [Int] = []
         let words = normalized.split(separator: " ")
         
@@ -685,6 +778,12 @@ class AttentionTask: Task {
                 extractedDigits.append(digit)
             }
         }
+        
+        return extractedDigits
+    }
+    
+    private func scoreDigitSpan(_ transcription: String, expected: [Int], reverse: Bool) -> (score: Double, isCorrect: Bool) {
+        let extractedDigits = extractDigitsFromTranscription(transcription)
         
         let expectedSequence = reverse ? expected.reversed() : expected
         let isCorrect = extractedDigits == expectedSequence

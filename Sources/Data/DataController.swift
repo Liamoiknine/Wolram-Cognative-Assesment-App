@@ -1,9 +1,10 @@
 import Foundation
+import Combine
 
 /// In-memory implementation of DataControllerProtocol.
 /// Mimics Core Data patterns with stable UUID-based object identity.
 /// Prepared for future Core Data migration.
-class DataController: DataControllerProtocol {
+class DataController: DataControllerProtocol, ObservableObject, @unchecked Sendable {
     // In-memory storage
     private var patients: [UUID: Patient] = [:]
     private var sessions: [UUID: Session] = [:]
@@ -178,7 +179,10 @@ class DataController: DataControllerProtocol {
                     timestamp: response.timestamp,
                     audioClipId: response.audioClipId,
                     createdAt: response.createdAt,
-                    updatedAt: Date()
+                    updatedAt: Date(),
+                    score: response.score,
+                    correctWords: response.correctWords,
+                    expectedWords: response.expectedWords
                 )
                 self.itemResponses[response.id] = updatedResponse
                 continuation.resume(returning: updatedResponse)
@@ -227,7 +231,10 @@ class DataController: DataControllerProtocol {
                     timestamp: response.timestamp,
                     audioClipId: response.audioClipId,
                     createdAt: response.createdAt,
-                    updatedAt: Date()
+                    updatedAt: Date(),
+                    score: response.score,
+                    correctWords: response.correctWords,
+                    expectedWords: response.expectedWords
                 )
                 self.itemResponses[response.id] = updatedResponse
                 continuation.resume()

@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		046733C2909DCC343384BEA3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9120E2E3061ED725839CDAF9 /* HomeView.swift */; };
 		0A0EBF8173967B820B296C70 /* ItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E2A1B109E5B9298605DA0 /* ItemResponse.swift */; };
+		0C7EFE562EEF675E009E5331 /* WorkingMemoryTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7EFE552EEF675E009E5331 /* WorkingMemoryTaskView.swift */; };
+		0C7EFE582EEF6771009E5331 /* AttentionTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7EFE572EEF6771009E5331 /* AttentionTaskView.swift */; };
+		0C7EFE5A2EEF677D009E5331 /* TrialResultCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7EFE592EEF677D009E5331 /* TrialResultCard.swift */; };
+		0C7EFE5C2EEF678C009E5331 /* TranscriptItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7EFE5B2EEF678C009E5331 /* TranscriptItemView.swift */; };
+		0C7EFE5E2EEF76F1009E5331 /* LanguageTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7EFE5D2EEF76F1009E5331 /* LanguageTask.swift */; };
+		0C7EFE602EEF76F9009E5331 /* AbstractionTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7EFE5F2EEF76F9009E5331 /* AbstractionTask.swift */; };
+		0C7EFE622EEF7703009E5331 /* AbstractionTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7EFE612EEF7703009E5331 /* AbstractionTaskView.swift */; };
+		0C7EFE642EEF770B009E5331 /* LanguageTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7EFE632EEF770B009E5331 /* LanguageTaskView.swift */; };
+		0CCD37772EEE96CF0078816D /* TranscriptItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD37762EEE96CF0078816D /* TranscriptItem.swift */; };
+		0CCD37792EEF4AA60078816D /* AttentionTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCD37782EEF4AA60078816D /* AttentionTask.swift */; };
 		158213C86B3D4E282D835BB2 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A221EE1C4A7886AA452E9A49 /* Patient.swift */; };
 		19718BF4DD0CF14DE2744125 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A677CB5563D099495D789E /* TaskViewModel.swift */; };
 		1B058925C86A8EDCCA3E0B2C /* StartAssessmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A4851041F7669BA27D8330 /* StartAssessmentViewModel.swift */; };
@@ -33,12 +43,23 @@
 		C6D747BDFAD69E528CFB57E4 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546CC3DAF0E395E2428DBDC4 /* Session.swift */; };
 		CCEE868028924A240DF9ADD0 /* TaskRunnerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E048A2D496A96BC2C39910 /* TaskRunnerProtocol.swift */; };
 		F4BFD850CCF3E53EC6CDFC5C /* DataControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF131F63CB9E1576CDA8C42 /* DataControllerProtocol.swift */; };
+		F7A8B9C3D4E5F6A7B8C9D0E1 /* WorkingMemoryTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B8C9D0E1F2 /* WorkingMemoryTask.swift */; };
 		FB32A832BE11B90D8DBA1A35 /* TranscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ADBD91C36593E5A0A33708 /* TranscriptionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		092F971BBE60B70EDD221B45 /* CognitiveAssessmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CognitiveAssessmentApp.swift; sourceTree = "<group>"; };
 		094502A6538978D43EF27366 /* TranscriptionManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionManagerProtocol.swift; sourceTree = "<group>"; };
+		0C7EFE552EEF675E009E5331 /* WorkingMemoryTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingMemoryTaskView.swift; sourceTree = "<group>"; };
+		0C7EFE572EEF6771009E5331 /* AttentionTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionTaskView.swift; sourceTree = "<group>"; };
+		0C7EFE592EEF677D009E5331 /* TrialResultCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialResultCard.swift; sourceTree = "<group>"; };
+		0C7EFE5B2EEF678C009E5331 /* TranscriptItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptItemView.swift; sourceTree = "<group>"; };
+		0C7EFE5D2EEF76F1009E5331 /* LanguageTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTask.swift; sourceTree = "<group>"; };
+		0C7EFE5F2EEF76F9009E5331 /* AbstractionTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractionTask.swift; sourceTree = "<group>"; };
+		0C7EFE612EEF7703009E5331 /* AbstractionTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractionTaskView.swift; sourceTree = "<group>"; };
+		0C7EFE632EEF770B009E5331 /* LanguageTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTaskView.swift; sourceTree = "<group>"; };
+		0CCD37762EEE96CF0078816D /* TranscriptItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptItem.swift; sourceTree = "<group>"; };
+		0CCD37782EEF4AA60078816D /* AttentionTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionTask.swift; sourceTree = "<group>"; };
 		266968D54AB00D7BC0A5922E /* SessionHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHistoryViewModel.swift; sourceTree = "<group>"; };
 		2B2FA6B51815273313A0B1D6 /* AudioManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManagerProtocol.swift; sourceTree = "<group>"; };
 		46BB595EE7B1750FBD52AEAE /* TaskRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRunner.swift; sourceTree = "<group>"; };
@@ -56,6 +77,7 @@
 		91A4851041F7669BA27D8330 /* StartAssessmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAssessmentViewModel.swift; sourceTree = "<group>"; };
 		91E048A2D496A96BC2C39910 /* TaskRunnerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRunnerProtocol.swift; sourceTree = "<group>"; };
 		A061F3E1A73529DF32F141A0 /* AudioClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioClip.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B8C9D0E1F2 /* WorkingMemoryTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingMemoryTask.swift; sourceTree = "<group>"; };
 		A221EE1C4A7886AA452E9A49 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		ABC457276F9CC50F867B61E4 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		AF4945AB6C15AD9134009A3F /* AudioSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionManager.swift; sourceTree = "<group>"; };
@@ -133,6 +155,12 @@
 		6EEF3EB2D5F47488D1930301 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0C7EFE632EEF770B009E5331 /* LanguageTaskView.swift */,
+				0C7EFE612EEF7703009E5331 /* AbstractionTaskView.swift */,
+				0C7EFE5B2EEF678C009E5331 /* TranscriptItemView.swift */,
+				0C7EFE592EEF677D009E5331 /* TrialResultCard.swift */,
+				0C7EFE572EEF6771009E5331 /* AttentionTaskView.swift */,
+				0C7EFE552EEF675E009E5331 /* WorkingMemoryTaskView.swift */,
 				9120E2E3061ED725839CDAF9 /* HomeView.swift */,
 				4E1307B0DF573CAA78D54209 /* SessionHistoryView.swift */,
 				B5A84135488B9B33B9435BDD /* StartAssessmentView.swift */,
@@ -182,10 +210,15 @@
 		E432461BFC653296C79D5BCE /* Assessment */ = {
 			isa = PBXGroup;
 			children = (
+				0C7EFE5F2EEF76F9009E5331 /* AbstractionTask.swift */,
+				0C7EFE5D2EEF76F1009E5331 /* LanguageTask.swift */,
+				0CCD37782EEF4AA60078816D /* AttentionTask.swift */,
+				0CCD37762EEE96CF0078816D /* TranscriptItem.swift */,
 				8BC8065C4CFABF2D04FB81C4 /* Task.swift */,
 				46BB595EE7B1750FBD52AEAE /* TaskRunner.swift */,
 				91E048A2D496A96BC2C39910 /* TaskRunnerProtocol.swift */,
 				D535D2654BB9693A9C9FB27D /* TaskRunnerState.swift */,
+				A1B2C3D4E5F6A7B8C9D0E1F2 /* WorkingMemoryTask.swift */,
 			);
 			path = Assessment;
 			sourceTree = "<group>";
@@ -254,10 +287,14 @@
 				C6D1E8CF951E16E52BF1698D /* AudioManager.swift in Sources */,
 				5C9FBC93ECAF9DDF8BD869E3 /* AudioManagerProtocol.swift in Sources */,
 				8897EB3857AE702DEAE2FD4D /* AudioSessionManager.swift in Sources */,
+				0C7EFE562EEF675E009E5331 /* WorkingMemoryTaskView.swift in Sources */,
+				0C7EFE622EEF7703009E5331 /* AbstractionTaskView.swift in Sources */,
 				A3340142A35908ED74F88127 /* CSVExporter.swift in Sources */,
 				1BDE25E85E7B6B5F70D8D3D7 /* CognitiveAssessmentApp.swift in Sources */,
 				695108D3C22918A6283B7497 /* DataController.swift in Sources */,
+				0CCD37772EEE96CF0078816D /* TranscriptItem.swift in Sources */,
 				F4BFD850CCF3E53EC6CDFC5C /* DataControllerProtocol.swift in Sources */,
+				0C7EFE5A2EEF677D009E5331 /* TrialResultCard.swift in Sources */,
 				4FED2C4E7E7B6F11BED1820E /* FileStorage.swift in Sources */,
 				3FAC9694CBE789C5DD8CA110 /* FileStorageProtocol.swift in Sources */,
 				046733C2909DCC343384BEA3 /* HomeView.swift in Sources */,
@@ -267,14 +304,21 @@
 				C6D747BDFAD69E528CFB57E4 /* Session.swift in Sources */,
 				2F749439889B82C455B667FB /* SessionHistoryView.swift in Sources */,
 				6D70B5F976C97FF427B26E65 /* SessionHistoryViewModel.swift in Sources */,
+				0C7EFE5E2EEF76F1009E5331 /* LanguageTask.swift in Sources */,
 				BC3A9DF4899BAEFF7E3E479D /* StartAssessmentView.swift in Sources */,
 				1B058925C86A8EDCCA3E0B2C /* StartAssessmentViewModel.swift in Sources */,
 				47FB95E619D15DDF28F7AD4D /* Task.swift in Sources */,
+				0C7EFE582EEF6771009E5331 /* AttentionTaskView.swift in Sources */,
+				0C7EFE602EEF76F9009E5331 /* AbstractionTask.swift in Sources */,
 				A128604733DA175F7314DDAE /* TaskRunner.swift in Sources */,
 				CCEE868028924A240DF9ADD0 /* TaskRunnerProtocol.swift in Sources */,
+				0CCD37792EEF4AA60078816D /* AttentionTask.swift in Sources */,
 				A2352F3D8E0D470B73B38152 /* TaskRunnerState.swift in Sources */,
 				71C029FA2A04E76817B5E4C9 /* TaskView.swift in Sources */,
+				0C7EFE5C2EEF678C009E5331 /* TranscriptItemView.swift in Sources */,
+				F7A8B9C3D4E5F6A7B8C9D0E1 /* WorkingMemoryTask.swift in Sources */,
 				19718BF4DD0CF14DE2744125 /* TaskViewModel.swift in Sources */,
+				0C7EFE642EEF770B009E5331 /* LanguageTaskView.swift in Sources */,
 				FB32A832BE11B90D8DBA1A35 /* TranscriptionManager.swift in Sources */,
 				461285E62D0B0B7A31CF67F8 /* TranscriptionManagerProtocol.swift in Sources */,
 			);
@@ -384,7 +428,6 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
-
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

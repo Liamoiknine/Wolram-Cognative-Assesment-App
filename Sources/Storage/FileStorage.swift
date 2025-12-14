@@ -2,6 +2,7 @@ import Foundation
 
 /// Default implementation of FileStorageProtocol using FileManager.
 /// Provides abstracted file operations with a configurable base directory.
+@available(iOS 13.0, macOS 10.15, *)
 class FileStorage: FileStorageProtocol {
     let baseDirectory: String
     private let fileManager: FileManager
