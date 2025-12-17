@@ -43,9 +43,9 @@ class AbstractionTask: Task {
     private var isCancelled = false
     
     // Constants
-    private let recordingDuration: TimeInterval = 15.0 // 15 seconds per trial
+    private let recordingDuration: TimeInterval = 8.0 // 8 seconds per trial
     private let transcriptionPollInterval: TimeInterval = 0.5
-    private let transcriptionMaxWaitTime: TimeInterval = 30.0
+    private let transcriptionMaxWaitTime: TimeInterval = 3.0 // 3 seconds max wait for transcription
     
     init(
         id: UUID = UUID(),
@@ -81,7 +81,7 @@ class AbstractionTask: Task {
         }
         
         // Intro explanation
-        let introText = "Welcome to the abstraction task. I will read you two words, and you need to tell me the category that unites them. For example, if I say 'apple and orange', you might say 'fruits'. You will have 15 seconds to respond for each pair. Let's begin."
+        let introText = "Welcome to the abstraction task. I will read you two words, and you need to tell me the category that unites them. For example, if I say 'apple and orange', you might say 'fruits'. You will have 8 seconds to respond for each pair. Let's begin."
         
         if let taskRunnerInstance = taskRunner as? TaskRunner {
             await MainActor.run {
@@ -210,7 +210,7 @@ class AbstractionTask: Task {
         try? await _Concurrency.Task.sleep(nanoseconds: 1_000_000_000) // 1 second
         
         // Prompt for response
-        let promptText = "What category unites these two words? You have 15 seconds. I'm listening."
+        let promptText = "What category unites these two words? I'm listening."
         
         if let taskRunnerInstance = taskRunner as? TaskRunner {
             await MainActor.run {

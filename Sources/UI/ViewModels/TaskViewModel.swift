@@ -16,6 +16,8 @@ class TaskViewModel: ObservableObject {
     @Published var attentionResults: [ItemResponse] = []
     @Published var languageResults: [ItemResponse] = []
     @Published var abstractionResults: [ItemResponse] = []
+    @Published var delayedRecallResults: [ItemResponse] = []
+    @Published var orientationResults: [ItemResponse] = []
     @Published var currentWord: String? = nil // Current word being displayed (for WorkingMemoryTask)
     @Published var transcript: [TranscriptItem] = [] // Transcript of what's being said (for WorkingMemoryTask)
     
@@ -83,6 +85,10 @@ class TaskViewModel: ObservableObject {
                                 await self?.loadLanguageResults()
                             } else if self?.isAbstractionTask == true {
                                 await self?.loadAbstractionResults()
+                            } else if self?.isDelayedRecallTask == true {
+                                await self?.loadDelayedRecallResults()
+                            } else if self?.isOrientationTask == true {
+                                await self?.loadOrientationResults()
                             }
                         }
                     }
@@ -121,6 +127,22 @@ class TaskViewModel: ObservableObject {
             return task is AbstractionTask || currentTaskTitle == "Abstraction Task"
         }
         return currentTaskTitle == "Abstraction Task"
+    }
+    
+    var isDelayedRecallTask: Bool {
+        // Check both title and actual task instance type for reliability
+        if let task = taskRunner.currentTask {
+            return task is DelayedRecallTask || currentTaskTitle == "Delayed Recall Task"
+        }
+        return currentTaskTitle == "Delayed Recall Task"
+    }
+    
+    var isOrientationTask: Bool {
+        // Check both title and actual task instance type for reliability
+        if let task = taskRunner.currentTask {
+            return task is OrientationTask || currentTaskTitle == "Orientation Task"
+        }
+        return currentTaskTitle == "Orientation Task"
     }
     
     func captureTextResponse(_ text: String) async {
@@ -343,6 +365,96 @@ class TaskViewModel: ObservableObject {
         print("⚠️ TaskViewModel: No abstraction results found after 3 attempts")
     }
     
+    func loadDelayedRecallResults() async {
+        print("📊 TaskViewModel: Loading delayed recall task results...")
+        print("   - DataController instance: \(ObjectIdentifier(dataController as AnyObject))")
+        
+        guard let currentTask = taskRunner.currentTask else {
+            print("⚠️ TaskViewModel: No current task available")
+            return
+        }
+        
+        print("   - Current task ID: \(currentTask.id)")
+        print("   - Current task title: \(currentTask.title)")
+        
+        // Try loading with retries
+        for attempt in 1...3 {
+            do {
+                let allResponses = try await dataController.fetchAllItemResponses()
+                print("   - Attempt \(attempt): Total ItemResponses in database: \(allResponses.count)")
+                
+                let taskResponses = allResponses
+                    .filter { $0.taskId == currentTask.id }
+                    .sorted { $0.createdAt < $1.createdAt }
+                
+                print("   - ItemResponses for this task: \(taskResponses.count)")
+                
+                if !taskResponses.isEmpty || attempt == 3 {
+                    await MainActor.run {
+                        self.delayedRecallResults = taskResponses
+                        print("✅ TaskViewModel: Delayed recall results loaded and published (\(taskResponses.count) responses)")
+                    }
+                    return
+                } else {
+                    print("   ⏳ Attempt \(attempt): No results yet, retrying in 1 second...")
+                    try? await _Concurrency.Task.sleep(nanoseconds: 1_000_000_000)
+                }
+            } catch {
+                print("❌ TaskViewModel: Failed to load delayed recall results (attempt \(attempt)): \(error)")
+                if attempt < 3 {
+                    try? await _Concurrency.Task.sleep(nanoseconds: 1_000_000_000)
+                }
+            }
+        }
+        
+        print("⚠️ TaskViewModel: No delayed recall results found after 3 attempts")
+    }
+    
+    func loadOrientationResults() async {
+        print("📊 TaskViewModel: Loading orientation task results...")
+        print("   - DataController instance: \(ObjectIdentifier(dataController as AnyObject))")
+        
+        guard let currentTask = taskRunner.currentTask else {
+            print("⚠️ TaskViewModel: No current task available")
+            return
+        }
+        
+        print("   - Current task ID: \(currentTask.id)")
+        print("   - Current task title: \(currentTask.title)")
+        
+        // Try loading with retries
+        for attempt in 1...3 {
+            do {
+                let allResponses = try await dataController.fetchAllItemResponses()
+                print("   - Attempt \(attempt): Total ItemResponses in database: \(allResponses.count)")
+                
+                let taskResponses = allResponses
+                    .filter { $0.taskId == currentTask.id }
+                    .sorted { $0.createdAt < $1.createdAt }
+                
+                print("   - ItemResponses for this task: \(taskResponses.count)")
+                
+                if !taskResponses.isEmpty || attempt == 3 {
+                    await MainActor.run {
+                        self.orientationResults = taskResponses
+                        print("✅ TaskViewModel: Orientation results loaded and published (\(taskResponses.count) responses)")
+                    }
+                    return
+                } else {
+                    print("   ⏳ Attempt \(attempt): No results yet, retrying in 1 second...")
+                    try? await _Concurrency.Task.sleep(nanoseconds: 1_000_000_000)
+                }
+            } catch {
+                print("❌ TaskViewModel: Failed to load orientation results (attempt \(attempt)): \(error)")
+                if attempt < 3 {
+                    try? await _Concurrency.Task.sleep(nanoseconds: 1_000_000_000)
+                }
+            }
+        }
+        
+        print("⚠️ TaskViewModel: No orientation results found after 3 attempts")
+    }
+    
     /// Load results for a specific session and task ID (for viewing completed sessions)
     func loadResultsForSession(sessionId: UUID, taskId: UUID, taskTitle: String) async {
         print("📊 TaskViewModel: Loading results for session \(sessionId), task \(taskId)")
@@ -357,6 +469,8 @@ class TaskViewModel: ObservableObject {
         let isAttention = taskTitle == "Attention Task"
         let isLanguage = taskTitle == "Language Task"
         let isAbstraction = taskTitle == "Abstraction Task"
+        let isDelayedRecall = taskTitle == "Delayed Recall Task"
+        let isOrientation = taskTitle == "Orientation Task"
         
         do {
             let sessionResponses = try await dataController.fetchItemResponses(for: sessionId)
@@ -375,6 +489,10 @@ class TaskViewModel: ObservableObject {
                     self.languageResults = taskResponses
                 } else if isAbstraction {
                     self.abstractionResults = taskResponses
+                } else if isDelayedRecall {
+                    self.delayedRecallResults = taskResponses
+                } else if isOrientation {
+                    self.orientationResults = taskResponses
                 }
             }
         } catch {

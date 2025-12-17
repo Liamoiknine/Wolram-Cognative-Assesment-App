@@ -184,13 +184,16 @@ struct WorkingMemoryTaskView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(.horizontal, 20)
-            .padding(.top, 4)
+            .padding(.top, 0)
             .padding(.bottom, 12)
             .frame(maxWidth: .infinity)
             .background(
                 Color(.systemBackground)
                     .shadow(color: .black.opacity(0.05), radius: 2, y: 1)
             )
+            .safeAreaInset(edge: .top) {
+                Color.clear.frame(height: 0)
+            }
             
             // Show countdown during recording, transcript otherwise
             if viewModel.currentState == .recording {

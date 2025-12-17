@@ -82,6 +82,12 @@ private struct StartAssessmentViewWrapper: View {
                     // Abstraction Task Card
                     testCard(for: .abstraction)
                     
+                    // Delayed Recall Task Card
+                    testCard(for: .delayedRecall)
+                    
+                    // Orientation Task Card
+                    testCard(for: .orientation)
+                    
                     // Error Message
                     if let errorMessage = viewModel.errorMessage {
                         HStack(spacing: 10) {
@@ -112,7 +118,7 @@ private struct StartAssessmentViewWrapper: View {
             await viewModel.loadPatients()
         }
         .fullScreenCover(isPresented: $viewModel.shouldNavigateToWorkingMemory) {
-            WorkingMemoryTaskView(taskRunner: taskRunner, dataController: dataController)
+            BackendWorkingMemoryTaskView()
         }
         .fullScreenCover(isPresented: $viewModel.shouldNavigateToAttention) {
             AttentionTaskView(taskRunner: taskRunner, dataController: dataController)
@@ -120,8 +126,14 @@ private struct StartAssessmentViewWrapper: View {
         .fullScreenCover(isPresented: $viewModel.shouldNavigateToLanguage) {
             LanguageTaskView(taskRunner: taskRunner, dataController: dataController)
         }
-        .fullScreenCover(isPresented: $viewModel.shouldNavigateToAbstraction) {
-            AbstractionTaskView(taskRunner: taskRunner, dataController: dataController)
+        .fullScreenCover(isPresented: $viewModel.shouldNavigateToBackendAbstraction) {
+            BackendAbstractionTaskView()
+        }
+        .fullScreenCover(isPresented: $viewModel.shouldNavigateToDelayedRecall) {
+            DelayedRecallTaskView(taskRunner: taskRunner, dataController: dataController)
+        }
+        .fullScreenCover(isPresented: $viewModel.shouldNavigateToOrientation) {
+            OrientationTaskView(taskRunner: taskRunner, dataController: dataController)
         }
         .onAppear {
             // Update viewModel with environment AudioManager if available

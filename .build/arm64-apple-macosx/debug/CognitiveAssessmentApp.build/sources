@@ -1,4 +1,8 @@
+/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/AbstractionTask.swift
 /Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/AttentionTask.swift
+/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/DelayedRecallTask.swift
+/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/LanguageTask.swift
+/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/OrientationTask.swift
 /Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/Task.swift
 /Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/TaskRunner.swift
 /Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/TaskRunnerProtocol.swift
@@ -24,8 +28,12 @@
 /Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/ViewModels/SessionHistoryViewModel.swift
 /Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/ViewModels/StartAssessmentViewModel.swift
 /Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/ViewModels/TaskViewModel.swift
+/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/AbstractionTaskView.swift
 /Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/AttentionTaskView.swift
+/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/DelayedRecallTaskView.swift
 /Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/HomeView.swift
+/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/LanguageTaskView.swift
+/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/OrientationTaskView.swift
 /Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/SessionHistoryView.swift
 /Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/StartAssessmentView.swift
 /Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/TaskView.swift

@@ -18,7 +18,9 @@ class StartAssessmentViewModel: ObservableObject {
     @Published var shouldNavigateToWorkingMemory = false
     @Published var shouldNavigateToAttention = false
     @Published var shouldNavigateToLanguage = false
-    @Published var shouldNavigateToAbstraction = false
+    @Published var shouldNavigateToBackendAbstraction = false
+    @Published var shouldNavigateToDelayedRecall = false
+    @Published var shouldNavigateToOrientation = false
     @Published var currentTestType: TestType?
     
     init(dataController: DataControllerProtocol, taskRunner: TaskRunnerProtocol, audioManager: AudioManagerProtocol) {
@@ -91,6 +93,8 @@ class StartAssessmentViewModel: ObservableObject {
                     // Attention: 4+ responses (multiple phases)
                     // Language: exactly 3 responses (2 sentences + 1 fluency)
                     // Abstraction: exactly 2 responses (2 trials)
+                    // Delayed Recall: exactly 1 response (single trial)
+                    // Orientation: exactly 6 responses (6 questions)
                     for taskId in uniqueTaskIds {
                         let taskResponses = sessionResponses.filter { $0.taskId == taskId }
                         let responseCount = taskResponses.count
@@ -100,9 +104,11 @@ class StartAssessmentViewModel: ObservableObject {
                         let isAttention = responseCount >= 4 && testType == .attention
                         let isLanguage = responseCount == 3 && testType == .language
                         let isAbstraction = responseCount == 2 && testType == .abstraction
+                        let isDelayedRecall = responseCount == 1 && testType == .delayedRecall
+                        let isOrientation = responseCount == 6 && testType == .orientation
                         
                         // Only proceed if we have a clear match for the requested test type
-                        if (isWorkingMemory && testType == .workingMemory) || (isAttention && testType == .attention) || (isLanguage && testType == .language) || (isAbstraction && testType == .abstraction) {
+                        if (isWorkingMemory && testType == .workingMemory) || (isAttention && testType == .attention) || (isLanguage && testType == .language) || (isAbstraction && testType == .abstraction) || (isDelayedRecall && testType == .delayedRecall) || (isOrientation && testType == .orientation) {
                             // Found a completed session for this test type
                             let taskTitle: String
                             switch testType {
@@ -114,6 +120,10 @@ class StartAssessmentViewModel: ObservableObject {
                                 taskTitle = "Language Task"
                             case .abstraction:
                                 taskTitle = "Abstraction Task"
+                            case .delayedRecall:
+                                taskTitle = "Delayed Recall Task"
+                            case .orientation:
+                                taskTitle = "Orientation Task"
                             }
                             
                             // Create a placeholder task for viewing results
@@ -134,7 +144,11 @@ class StartAssessmentViewModel: ObservableObject {
                                     } else if testType == .language {
                                         self.shouldNavigateToLanguage = true
                                     } else if testType == .abstraction {
-                                        self.shouldNavigateToAbstraction = true
+                                        self.shouldNavigateToBackendAbstraction = true
+                                    } else if testType == .delayedRecall {
+                                        self.shouldNavigateToDelayedRecall = true
+                                    } else if testType == .orientation {
+                                        self.shouldNavigateToOrientation = true
                                     }
                                     print("✅ StartAssessmentViewModel: Found completed session \(session.id) for \(taskTitle), navigating to results")
                                 }
@@ -186,45 +200,13 @@ class StartAssessmentViewModel: ObservableObject {
             // Create and start the appropriate task based on test type
             switch testType {
             case .workingMemory:
-                // Create and start WorkingMemoryTask
-                // CRITICAL: Use TaskRunner's DataController to ensure we use the same instance
-                // that actually saves the ItemResponses
-                let workingMemoryTask = WorkingMemoryTask(
-                    audioManager: audioManager,
-                    taskRunner: taskRunner,
-                    dataController: taskRunner.dataController
-                )
-                
-                // Verify we're using the same DataController
-                // Cast to AnyObject for identity comparison (since DataController is a class)
-                if (dataController as AnyObject) !== (taskRunner.dataController as AnyObject) {
-                    print("⚠️ StartAssessmentViewModel: WARNING - Environment DataController differs from TaskRunner's DataController!")
-                    print("   WorkingMemoryTask will use TaskRunner's DataController to ensure data consistency.")
-                } else {
-                    print("✅ StartAssessmentViewModel: Using same DataController instance as TaskRunner")
-                }
-                
-                // Start the task (don't await - let it run in background)
-                // Navigate immediately so user sees the task UI
-                _Concurrency.Task {
-                    do {
-                        try await taskRunner.startTask(workingMemoryTask, sessionId: savedSession.id)
-                        print("✅ Task completed successfully")
-                    } catch {
-                        print("❌ Task failed: \(error)")
-                        await MainActor.run {
-                            self.errorMessage = "Task failed: \(error.localizedDescription)"
-                        }
-                    }
-                }
-                
-                // Navigate immediately after starting the task
+                // NEW: Route to backend-controlled flow (bypasses TaskRunner)
                 await MainActor.run {
                     self.isStartingAssessment = false
                     self.createdSessionId = savedSession.id
                     self.currentTestType = .workingMemory
                     self.shouldNavigateToWorkingMemory = true
-                    print("✅ Created session: \(savedSession.id) and started WorkingMemoryTask - navigating to task view")
+                    print("✅ Routing to backend-controlled Working Memory task")
                 }
                 
             case .attention:
@@ -306,8 +288,19 @@ class StartAssessmentViewModel: ObservableObject {
                 }
                 
             case .abstraction:
-                // Create and start AbstractionTask
-                let abstractionTask = AbstractionTask(
+                // NEW: Route to backend-controlled flow (bypasses TaskRunner)
+                await MainActor.run {
+                    self.isStartingAssessment = false
+                    self.createdSessionId = savedSession.id
+                    self.currentTestType = .abstraction
+                    self.shouldNavigateToBackendAbstraction = true
+                    print("✅ Routing to backend-controlled Abstraction task")
+                }
+                
+                
+            case .delayedRecall:
+                // Create and start DelayedRecallTask
+                let delayedRecallTask = DelayedRecallTask(
                     audioManager: audioManager,
                     taskRunner: taskRunner,
                     dataController: taskRunner.dataController
@@ -316,7 +309,7 @@ class StartAssessmentViewModel: ObservableObject {
                 // Verify we're using the same DataController
                 if (dataController as AnyObject) !== (taskRunner.dataController as AnyObject) {
                     print("⚠️ StartAssessmentViewModel: WARNING - Environment DataController differs from TaskRunner's DataController!")
-                    print("   AbstractionTask will use TaskRunner's DataController to ensure data consistency.")
+                    print("   DelayedRecallTask will use TaskRunner's DataController to ensure data consistency.")
                 } else {
                     print("✅ StartAssessmentViewModel: Using same DataController instance as TaskRunner")
                 }
@@ -325,10 +318,10 @@ class StartAssessmentViewModel: ObservableObject {
                 // Navigate immediately so user sees the task UI
                 _Concurrency.Task {
                     do {
-                        try await taskRunner.startTask(abstractionTask, sessionId: savedSession.id)
-                        print("✅ Abstraction task completed successfully")
+                        try await taskRunner.startTask(delayedRecallTask, sessionId: savedSession.id)
+                        print("✅ Delayed recall task completed successfully")
                     } catch {
-                        print("❌ Abstraction task failed: \(error)")
+                        print("❌ Delayed recall task failed: \(error)")
                         await MainActor.run {
                             self.errorMessage = "Task failed: \(error.localizedDescription)"
                         }
@@ -339,9 +332,48 @@ class StartAssessmentViewModel: ObservableObject {
                 await MainActor.run {
                     self.isStartingAssessment = false
                     self.createdSessionId = savedSession.id
-                    self.currentTestType = .abstraction
-                    self.shouldNavigateToAbstraction = true
-                    print("✅ Created session: \(savedSession.id) and started AbstractionTask - navigating to task view")
+                    self.currentTestType = .delayedRecall
+                    self.shouldNavigateToDelayedRecall = true
+                    print("✅ Created session: \(savedSession.id) and started DelayedRecallTask - navigating to task view")
+                }
+                
+            case .orientation:
+                // Create and start OrientationTask
+                let orientationTask = OrientationTask(
+                    audioManager: audioManager,
+                    taskRunner: taskRunner,
+                    dataController: taskRunner.dataController
+                )
+                
+                // Verify we're using the same DataController
+                if (dataController as AnyObject) !== (taskRunner.dataController as AnyObject) {
+                    print("⚠️ StartAssessmentViewModel: WARNING - Environment DataController differs from TaskRunner's DataController!")
+                    print("   OrientationTask will use TaskRunner's DataController to ensure data consistency.")
+                } else {
+                    print("✅ StartAssessmentViewModel: Using same DataController instance as TaskRunner")
+                }
+                
+                // Start the task (don't await - let it run in background)
+                // Navigate immediately so user sees the task UI
+                _Concurrency.Task {
+                    do {
+                        try await taskRunner.startTask(orientationTask, sessionId: savedSession.id)
+                        print("✅ Orientation task completed successfully")
+                    } catch {
+                        print("❌ Orientation task failed: \(error)")
+                        await MainActor.run {
+                            self.errorMessage = "Task failed: \(error.localizedDescription)"
+                        }
+                    }
+                }
+                
+                // Navigate immediately after starting the task
+                await MainActor.run {
+                    self.isStartingAssessment = false
+                    self.createdSessionId = savedSession.id
+                    self.currentTestType = .orientation
+                    self.shouldNavigateToOrientation = true
+                    print("✅ Created session: \(savedSession.id) and started OrientationTask - navigating to task view")
                 }
             }
         } catch {
@@ -360,6 +392,8 @@ enum TestType: String, Identifiable {
     case attention = "attention"
     case language = "language"
     case abstraction = "abstraction"
+    case delayedRecall = "delayed_recall"
+    case orientation = "orientation"
     
     var id: String { rawValue }
     
@@ -373,6 +407,10 @@ enum TestType: String, Identifiable {
             return "Language Task"
         case .abstraction:
             return "Abstraction Task"
+        case .delayedRecall:
+            return "Delayed Recall"
+        case .orientation:
+            return "Orientation Task"
         }
     }
     
@@ -386,6 +424,10 @@ enum TestType: String, Identifiable {
             return "Test language through sentence repetition and word fluency"
         case .abstraction:
             return "Test your ability to identify categories that unite two words"
+        case .delayedRecall:
+            return "Test your ability to recall words from the first activity"
+        case .orientation:
+            return "Test orientation to date, time, place, and location"
         }
     }
     
@@ -399,6 +441,10 @@ enum TestType: String, Identifiable {
             return "text.bubble.fill"
         case .abstraction:
             return "lightbulb.fill"
+        case .delayedRecall:
+            return "clock.arrow.circlepath"
+        case .orientation:
+            return "location.fill"
         }
     }
     
@@ -412,6 +458,10 @@ enum TestType: String, Identifiable {
             return .orange
         case .abstraction:
             return .green
+        case .delayedRecall:
+            return .teal
+        case .orientation:
+            return .indigo
         }
     }
 }

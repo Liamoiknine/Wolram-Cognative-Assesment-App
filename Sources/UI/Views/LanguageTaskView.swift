@@ -178,13 +178,16 @@ struct LanguageTaskView: View {
                     }
                 }
                 .padding(.horizontal, 24)
-                .padding(.top, 20)
+                .padding(.top, 0)
                 .padding(.bottom, 16)
                 .frame(maxWidth: .infinity)
                 .background(
                     Color(.systemBackground)
                         .shadow(color: .black.opacity(0.05), radius: 2, y: 1)
                 )
+                .safeAreaInset(edge: .top) {
+                    Color.clear.frame(height: 0)
+                }
                 
                 // Show countdown during recording, transcript otherwise
                 if viewModel.currentState == .recording {
@@ -345,10 +348,13 @@ struct LanguageTaskView: View {
                     }
                 }
                 .padding(.horizontal, 20)
-                .padding(.top, 16)
+                .padding(.top, 0)
                 .padding(.bottom, 20)
                 .frame(maxWidth: .infinity)
                 .background(Color(.systemBackground))
+                .safeAreaInset(edge: .top) {
+                    Color.clear.frame(height: 0)
+                }
                 
                 if viewModel.languageResults.isEmpty {
                     VStack(spacing: 16) {

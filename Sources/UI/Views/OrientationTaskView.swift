@@ -8,12 +8,12 @@ fileprivate func createTask(_ operation: @escaping () async -> Void) {
     }
 }
 
-/// Independent view for Abstraction Task.
-struct AbstractionTaskView: View {
+/// Independent view for Orientation Task.
+struct OrientationTaskView: View {
     @StateObject private var viewModel: TaskViewModel
     @Environment(\.dismiss) private var dismiss
     @State private var recordingStartTime: Date?
-    @State private var timeRemaining: Double = 15.0
+    @State private var timeRemaining: Double = 5.0
     @State private var countdownTimer: Timer?
     
     private let taskRunner: TaskRunnerProtocol?
@@ -47,12 +47,12 @@ struct AbstractionTaskView: View {
     
     var body: some View {
         Group {
-            // Verify this is actually an abstraction task
-            if viewModel.isAbstractionTask {
+            // Verify this is actually an orientation task
+            if viewModel.isOrientationTask {
                 if viewModel.currentState == .completed {
-                    abstractionResultsView
+                    orientationResultsView
                 } else {
-                    abstractionTaskActiveView
+                    orientationTaskActiveView
                 }
             } else {
                 // If somehow we're showing the wrong task, show error
@@ -60,7 +60,7 @@ struct AbstractionTaskView: View {
                     Text("Error: Wrong task type")
                         .font(.headline)
                         .foregroundColor(.red)
-                    Text("This view is for Abstraction Task, but a different task is active.")
+                    Text("This view is for Orientation Task, but a different task is active.")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     Button("Go Back") {
@@ -73,14 +73,14 @@ struct AbstractionTaskView: View {
         }
         .onAppear {
             // Verify task type on appear
-            if !viewModel.isAbstractionTask {
-                print("⚠️ AbstractionTaskView: Warning - current task is not an AbstractionTask!")
+            if !viewModel.isOrientationTask {
+                print("⚠️ OrientationTaskView: Warning - current task is not an OrientationTask!")
                 print("   Current task title: \(viewModel.currentTaskTitle)")
                 print("   Current task type: \(type(of: taskRunner?.currentTask))")
             }
             
             // If task is already completed (viewing results), load results immediately
-            if viewModel.currentState == .completed && viewModel.isAbstractionTask {
+            if viewModel.currentState == .completed && viewModel.isOrientationTask {
                 if let task = taskRunner?.currentTask,
                    let taskRunnerInstance = taskRunner as? TaskRunner,
                    let sessionId = taskRunnerInstance.currentSessionId {
@@ -99,7 +99,7 @@ struct AbstractionTaskView: View {
     // MARK: - Active Task View
     
     @ViewBuilder
-    private var abstractionTaskActiveView: some View {
+    private var orientationTaskActiveView: some View {
         ZStack {
             VStack(spacing: 0) {
                 // Header with End Task and Back buttons
@@ -113,7 +113,7 @@ struct AbstractionTaskView: View {
                                 // Small delay to ensure state transition
                                 try? await _Concurrency.Task.sleep(nanoseconds: 200_000_000)
                                 // Load results from partial data
-                                await viewModel.loadAbstractionResults()
+                                await viewModel.loadOrientationResults()
                                 // Dismiss after stopping
                                 await MainActor.run {
                                     dismiss()
@@ -144,7 +144,7 @@ struct AbstractionTaskView: View {
                                 createTask {
                                     await viewModel.stopTask()
                                     try? await _Concurrency.Task.sleep(nanoseconds: 300_000_000)
-                                    await viewModel.loadAbstractionResults()
+                                    await viewModel.loadOrientationResults()
                                 }
                             }) {
                                 Text("End Task")
@@ -178,13 +178,16 @@ struct AbstractionTaskView: View {
                     }
                 }
                 .padding(.horizontal, 24)
-                .padding(.top, 20)
+                .padding(.top, 0)
                 .padding(.bottom, 16)
                 .frame(maxWidth: .infinity)
                 .background(
                     Color(.systemBackground)
                         .shadow(color: .black.opacity(0.05), radius: 2, y: 1)
                 )
+                .safeAreaInset(edge: .top) {
+                    Color.clear.frame(height: 0)
+                }
                 
                 // Show countdown during recording, transcript otherwise
                 if viewModel.currentState == .recording {
@@ -230,46 +233,16 @@ struct AbstractionTaskView: View {
                     }
                     .background(Color(.secondarySystemBackground))
                 }
-                
-                // Current Words Display
-                if let currentWord = viewModel.currentWord, viewModel.currentState == .presenting {
-                    VStack(spacing: 8) {
-                        Text("Current Words")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                            .textCase(.uppercase)
-                            .tracking(1)
-                        
-                        Text(currentWord)
-                            .font(.system(size: 20, weight: .semibold, design: .rounded))
-                            .foregroundColor(.green)
-                            .multilineTextAlignment(.center)
-                            .padding(.horizontal, 32)
-                            .padding(.vertical, 20)
-                            .frame(maxWidth: .infinity)
-                            .background(
-                                RoundedRectangle(cornerRadius: 16)
-                                    .fill(Color.green.opacity(0.1))
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 16)
-                                            .stroke(Color.green.opacity(0.3), lineWidth: 2)
-                                    )
-                            )
-                    }
-                    .padding(.horizontal, 24)
-                    .padding(.vertical, 16)
-                    .background(Color(.systemBackground))
-                }
             }
             .onChange(of: viewModel.currentState) { newState in
                 if newState == .recording {
                     recordingStartTime = Date()
-                    timeRemaining = 15.0
+                    timeRemaining = 5.0
                     startCountdown()
                 } else {
                     stopCountdown()
                     recordingStartTime = nil
-                    timeRemaining = 15.0
+                    timeRemaining = 5.0
                 }
             }
             .onDisappear {
@@ -282,7 +255,7 @@ struct AbstractionTaskView: View {
     // MARK: - Results View
     
     @ViewBuilder
-    private var abstractionResultsView: some View {
+    private var orientationResultsView: some View {
         ScrollView {
             VStack(spacing: 0) {
                 // Header with Back Button
@@ -327,27 +300,30 @@ struct AbstractionTaskView: View {
                         .foregroundColor(.secondary)
                     
                     // Total Score
-                    if !viewModel.abstractionResults.isEmpty {
-                        let totalScore = viewModel.abstractionResults.compactMap { $0.score }.reduce(0, +)
+                    if !viewModel.orientationResults.isEmpty {
+                        let totalScore = viewModel.orientationResults.compactMap { $0.score }.reduce(0, +)
                         VStack(spacing: 4) {
                             Text("Total Score")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                                 .textCase(.uppercase)
-                            Text("\(Int(totalScore))/2")
+                            Text("\(Int(totalScore))/6")
                                 .font(.system(size: 32, weight: .bold, design: .rounded))
-                                .foregroundColor(scoreColor(totalScore / 2.0))
+                                .foregroundColor(scoreColor(totalScore / 6.0))
                         }
                         .padding(.top, 8)
                     }
                 }
                 .padding(.horizontal, 20)
-                .padding(.top, 16)
+                .padding(.top, 0)
                 .padding(.bottom, 20)
                 .frame(maxWidth: .infinity)
                 .background(Color(.systemBackground))
+                .safeAreaInset(edge: .top) {
+                    Color.clear.frame(height: 0)
+                }
                 
-                if viewModel.abstractionResults.isEmpty {
+                if viewModel.orientationResults.isEmpty {
                     VStack(spacing: 16) {
                         ProgressView()
                             .scaleEffect(1.2)
@@ -359,14 +335,14 @@ struct AbstractionTaskView: View {
                     .padding(.top, 60)
                     .onAppear {
                         _Concurrency.Task {
-                            await viewModel.loadAbstractionResults()
+                            await viewModel.loadOrientationResults()
                         }
                     }
                 } else {
                     // Results Cards
                     VStack(spacing: 16) {
-                        ForEach(Array(viewModel.abstractionResults.enumerated()), id: \.element.id) { index, response in
-                            abstractionTrialResultCard(trialNumber: index + 1, response: response)
+                        ForEach(Array(viewModel.orientationResults.enumerated()), id: \.element.id) { index, response in
+                            orientationQuestionResultCard(questionNumber: index + 1, response: response)
                         }
                     }
                     .padding(.horizontal, 16)
@@ -388,7 +364,7 @@ struct AbstractionTaskView: View {
                         .padding(.vertical, 14)
                         .background(
                             RoundedRectangle(cornerRadius: 12)
-                                .fill(Color.green)
+                                .fill(Color.blue)
                         )
                     }
                     .buttonStyle(.plain)
@@ -422,7 +398,7 @@ struct AbstractionTaskView: View {
         case .idle:
             return "Ready"
         case .presenting:
-            return "Reading Words"
+            return "Reading Instructions"
         case .recording:
             return "Listening for Response"
         case .evaluating:
@@ -453,14 +429,23 @@ struct AbstractionTaskView: View {
     }
     
     @ViewBuilder
-    private func abstractionTrialResultCard(trialNumber: Int, response: ItemResponse) -> some View {
+    private func orientationQuestionResultCard(questionNumber: Int, response: ItemResponse) -> some View {
+        let questionNames = [
+            "Date",
+            "Month",
+            "Year",
+            "Day of Week",
+            "Place",
+            "City"
+        ]
+        let questionName = questionNumber <= questionNames.count ? questionNames[questionNumber - 1] : "Question \(questionNumber)"
         let maxScore = 1.0
         
         VStack(alignment: .leading, spacing: 16) {
             // Header
             HStack(alignment: .top, spacing: 12) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Trial \(trialNumber)")
+                    Text(questionName)
                         .font(.system(size: 20, weight: .bold, design: .rounded))
                         .foregroundColor(.primary)
                         .lineLimit(2)
@@ -496,42 +481,44 @@ struct AbstractionTaskView: View {
             
             Divider()
             
-            // Trial details
-            if let expectedWords = response.expectedWords, !expectedWords.isEmpty {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Expected Category")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .textCase(.uppercase)
-                    
-                    Text(expectedWords.first ?? "")
-                        .font(.system(size: 16, weight: .semibold, design: .rounded))
-                        .foregroundColor(.primary)
-                        .lineLimit(nil)
-                        .fixedSize(horizontal: false, vertical: true)
+            // Question details
+            VStack(alignment: .leading, spacing: 8) {
+                if let expectedWords = response.expectedWords, !expectedWords.isEmpty {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Expected Answer")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                            .textCase(.uppercase)
+                        
+                        Text(expectedWords[0])
+                            .font(.system(size: 16, weight: .semibold, design: .rounded))
+                            .foregroundColor(.primary)
+                            .lineLimit(nil)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
                 }
-            }
-            
-            if let transcription = response.responseText, !transcription.isEmpty {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Your Response")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .textCase(.uppercase)
-                        .padding(.top, 8)
-                    
-                    Text(transcription)
-                        .font(.system(size: 15, weight: .medium))
-                        .foregroundColor(.primary)
-                        .lineLimit(nil)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .padding(.horizontal, 14)
-                        .padding(.vertical, 10)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color(.secondarySystemBackground))
-                        )
+                
+                if let transcription = response.responseText, !transcription.isEmpty {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Your Response")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                            .textCase(.uppercase)
+                            .padding(.top, 8)
+                        
+                        Text(transcription)
+                            .font(.system(size: 15, weight: .medium))
+                            .foregroundColor(.primary)
+                            .lineLimit(nil)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.horizontal, 14)
+                            .padding(.vertical, 10)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color(.secondarySystemBackground))
+                            )
+                    }
                 }
             }
         }

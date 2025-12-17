@@ -24,7 +24,23 @@
       "inputs" : [
         {
           "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/AbstractionTask.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/AttentionTask.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/DelayedRecallTask.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/LanguageTask.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/OrientationTask.swift"
         },
         {
           "kind" : "file",
@@ -128,11 +144,27 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/AbstractionTaskView.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/AttentionTaskView.swift"
         },
         {
           "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/DelayedRecallTaskView.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/HomeView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/LanguageTaskView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/OrientationTaskView.swift"
         },
         {
           "kind" : "file",
@@ -171,7 +203,11 @@
       "moduleName" : "CognitiveAssessmentApp",
       "moduleOutputPath" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/Modules/CognitiveAssessmentApp.swiftmodule",
       "objects" : [
+        "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AbstractionTask.swift.o",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AttentionTask.swift.o",
+        "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/DelayedRecallTask.swift.o",
+        "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/LanguageTask.swift.o",
+        "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/OrientationTask.swift.o",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/Task.swift.o",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskRunner.swift.o",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskRunnerProtocol.swift.o",
@@ -197,8 +233,12 @@
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/SessionHistoryViewModel.swift.o",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/StartAssessmentViewModel.swift.o",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskViewModel.swift.o",
+        "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AbstractionTaskView.swift.o",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AttentionTaskView.swift.o",
+        "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/DelayedRecallTaskView.swift.o",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/HomeView.swift.o",
+        "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/LanguageTaskView.swift.o",
+        "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/OrientationTaskView.swift.o",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/SessionHistoryView.swift.o",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/StartAssessmentView.swift.o",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/TaskView.swift.o",
@@ -265,7 +305,23 @@
       "outputs" : [
         {
           "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AbstractionTask.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AttentionTask.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/DelayedRecallTask.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/LanguageTask.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/OrientationTask.swift.o"
         },
         {
           "kind" : "file",
@@ -369,11 +425,27 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AbstractionTaskView.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/AttentionTaskView.swift.o"
         },
         {
           "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/DelayedRecallTaskView.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/HomeView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/LanguageTaskView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/.build/arm64-apple-macosx/debug/CognitiveAssessmentApp.build/OrientationTaskView.swift.o"
         },
         {
           "kind" : "file",
@@ -406,7 +478,11 @@
       ],
       "prepareForIndexing" : false,
       "sources" : [
+        "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/AbstractionTask.swift",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/AttentionTask.swift",
+        "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/DelayedRecallTask.swift",
+        "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/LanguageTask.swift",
+        "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/OrientationTask.swift",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/Task.swift",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/TaskRunner.swift",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/TaskRunnerProtocol.swift",
@@ -432,8 +508,12 @@
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/ViewModels/SessionHistoryViewModel.swift",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/ViewModels/StartAssessmentViewModel.swift",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/ViewModels/TaskViewModel.swift",
+        "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/AbstractionTaskView.swift",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/AttentionTaskView.swift",
+        "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/DelayedRecallTaskView.swift",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/HomeView.swift",
+        "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/LanguageTaskView.swift",
+        "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/OrientationTaskView.swift",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/SessionHistoryView.swift",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/StartAssessmentView.swift",
         "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/TaskView.swift",
@@ -456,7 +536,11 @@
       "-package-name",
       "wolram_cognative_assesment_app",
       "-c",
+      "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/AbstractionTask.swift",
       "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/AttentionTask.swift",
+      "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/DelayedRecallTask.swift",
+      "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/LanguageTask.swift",
+      "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/OrientationTask.swift",
       "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/Task.swift",
       "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/TaskRunner.swift",
       "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/TaskRunnerProtocol.swift",
@@ -482,8 +566,12 @@
       "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/ViewModels/SessionHistoryViewModel.swift",
       "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/ViewModels/StartAssessmentViewModel.swift",
       "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/ViewModels/TaskViewModel.swift",
+      "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/AbstractionTaskView.swift",
       "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/AttentionTaskView.swift",
+      "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/DelayedRecallTaskView.swift",
       "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/HomeView.swift",
+      "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/LanguageTaskView.swift",
+      "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/OrientationTaskView.swift",
       "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/SessionHistoryView.swift",
       "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/StartAssessmentView.swift",
       "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/TaskView.swift",
@@ -575,7 +663,23 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/AbstractionTask.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/AttentionTask.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/DelayedRecallTask.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/LanguageTask.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/Assessment/OrientationTask.swift"
         },
         {
           "kind" : "file",
@@ -679,11 +783,27 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/AbstractionTaskView.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/AttentionTaskView.swift"
         },
         {
           "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/DelayedRecallTaskView.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/HomeView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/LanguageTaskView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/liam/Desktop/dev/Wolram-Cognative-Assesment-App/Sources/UI/Views/OrientationTaskView.swift"
         },
         {
           "kind" : "file",
